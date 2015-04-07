@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :zip_code,           null: false
       t.string :profile_pic
-      t.string :about_me    
+      t.string :about_me
 
       ## Recoverable
       t.string   :reset_password_token
