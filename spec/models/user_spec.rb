@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe User, focus: true do
+describe User do
   it { should have_many(:user_skills).dependent(:destroy) }
   it { should have_many(:skills).dependent(:destroy) }
   # A skill should not exist unless at least one user possesses it

@@ -3,7 +3,7 @@ class CreateUserSkills < ActiveRecord::Migration
     create_table :user_skills do |t|
       t.integer :skill_id, null: false
       t.integer :user_id, null: false
-      t.integer :skill_level_id
+      t.integer :proficiency
 
       t.timestamps null: false
     end

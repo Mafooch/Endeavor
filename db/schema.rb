@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 20150408010407) do
   add_index "skills", ["name"], name: "index_skills_on_name", unique: true, using: :btree
 
   create_table "user_skills", force: :cascade do |t|
-    t.integer  "skill_id",       null: false
-    t.integer  "user_id",        null: false
-    t.integer  "skill_level_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "skill_id",    null: false
+    t.integer  "user_id",     null: false
+    t.integer  "proficiency"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "user_skills", ["skill_id", "user_id"], name: "index_user_skills_on_skill_id_and_user_id", unique: true, using: :btree
