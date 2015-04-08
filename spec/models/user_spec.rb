@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-# RSpec.describe User, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
-describe User do
+describe User, focus: true do
+  it { should have_many(:user_skills).dependent(:destroy) }
+  it { should have_many(:skills).dependent(:destroy) }
+  # A skill should not exist unless at least one user possesses it
+
   it { should have_valid(:username).when('crafts n stuff', 'artful dodger') }
   it { should_not have_valid(:username).when(
     ' ', 'eh', nil, 'this is way too long a username') }

@@ -14,4 +14,13 @@ FactoryGirl.define do
     about_me "A man of the people. Musical mastermind in need of a creative
       outlet"
   end
+
+  factory :skill do
+    sequence(:name) { |s| "skill#{s}" }
+  end
+
+  factory :user_skill do
+    user
+    skill
+  end
 end
