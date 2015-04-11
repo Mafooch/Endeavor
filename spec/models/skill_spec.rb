@@ -3,6 +3,8 @@ require 'rails_helper'
 describe Skill do
   it { should have_many(:user_skills).dependent(:destroy) }
   it { should have_many(:users) }
+  it { should have_many(:project_skills).dependent(:destroy) }
+  it { should have_many(:projects) }
 
   it { should have_valid(:name).when('wood-working', 'video production') }
   it { should_not have_valid(:name).when(

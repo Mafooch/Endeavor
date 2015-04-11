@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_skills, dependent: :destroy
-  has_many :skills, through: :user_skills, dependent: :destroy
+  has_many :skills, through: :user_skills
+  has_many :projects
 
   validates :username,
     presence: true,

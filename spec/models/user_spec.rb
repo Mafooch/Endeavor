@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe User do
+  it { should have_many(:skills) }
+  it { should have_many(:projects) }
   it { should have_many(:user_skills).dependent(:destroy) }
-  it { should have_many(:skills).dependent(:destroy) }
-  # A skill should not exist unless at least one user possesses it
+  # How can this be done. make a child dependent either of the parents
 
   it { should have_valid(:username).when('crafts n stuff', 'artful dodger') }
   it { should_not have_valid(:username).when(

@@ -15,12 +15,27 @@ FactoryGirl.define do
       outlet"
   end
 
+  factory :project do
+    sequence(:name) { |n| "#{n}Test Project Name" }
+    sequence(:proposal) do |n|
+      "#{n}This is a test project proposal. Testin, testing, one, two, three!"
+    end 
+
+    user
+  end
+
   factory :skill do
     sequence(:name) { |s| "skill#{s}" }
   end
 
   factory :user_skill do
+    # might make sense to add a proficiency here
     user
+    skill
+  end
+
+  factory :project_skill do
+    project
     skill
   end
 end
