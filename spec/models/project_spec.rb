@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Project do
   it { should belong_to(:user) }
-  it { should have_many(:skills) }
+  it { should have_many(:skills).through(:project_skills) }
   it { should have_many(:project_skills).dependent(:destroy) }
   # A skill should not exist unless at least one project or USER possesses it
   # How can this be done. make a child dependent either of the parents
