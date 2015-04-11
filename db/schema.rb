@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411024211) do
+ActiveRecord::Schema.define(version: 20150411061425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "project_skills", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "skill_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "project_skills", ["project_id", "skill_id"], name: "index_project_skills_on_project_id_and_skill_id", unique: true, using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",       null: false
@@ -36,6 +27,17 @@ ActiveRecord::Schema.define(version: 20150411024211) do
   add_index "projects", ["name", "user_id"], name: "index_projects_on_name_and_user_id", unique: true, using: :btree
   add_index "projects", ["proposal", "user_id"], name: "index_projects_on_proposal_and_user_id", unique: true, using: :btree
 
+  create_table "skill_tags", force: :cascade do |t|
+    t.integer  "proficiency"
+    t.integer  "skill_id",     null: false
+    t.integer  "tagable_id",   null: false
+    t.string   "tagable_type", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "skill_tags", ["skill_id", "tagable_id", "tagable_type"], name: "index_skill_tags_on_skill_id_and_tagable_id_and_tagable_type", unique: true, using: :btree
+
   create_table "skills", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -43,16 +45,6 @@ ActiveRecord::Schema.define(version: 20150411024211) do
   end
 
   add_index "skills", ["name"], name: "index_skills_on_name", unique: true, using: :btree
-
-  create_table "user_skills", force: :cascade do |t|
-    t.integer  "skill_id",    null: false
-    t.integer  "user_id",     null: false
-    t.integer  "proficiency"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "user_skills", ["skill_id", "user_id"], name: "index_user_skills_on_skill_id_and_user_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                            null: false
