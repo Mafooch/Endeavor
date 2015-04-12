@@ -1,0 +1,23 @@
+<div><%= @user.username %>'s profile</div>
+
+<div>About me: <%= @user.about_me %></div>
+
+<% unless @projects.empty? %>
+  <ol>
+  <% @projects.each do |project| %>
+    <li><%= project.name %></li>
+  <% end %>
+  </ol>
+<% end %>
+
+<% unless @user_skills.empty? %>
+  <ol>
+  <% @user_skills.each do |user_skill| %>
+    <li><%= user_skill.skill.name %>:
+      <% unless user_skill.proficiency == nil %>
+        Proficiency: <%= user_skill.proficiency %>
+      <% end %>
+    </li>
+  <% end %>
+  </ol>
+<% end %>
