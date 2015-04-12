@@ -10,7 +10,7 @@ FactoryGirl.define do
     first_name "Kenny"
     last_name "Retarc"
     zip_code "02111"
-    profile_pic "dfjlsjflka.jpg"
+    profile_pic "http://facebookcraze.com/wp-content/uploads/2010/10/funny-sherlock-holmes-alternative-facebook-profile-picture.jpg"
     about_me "A man of the people. Musical mastermind in need of a creative
       outlet"
   end
@@ -19,7 +19,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "#{n}Test Project Name" }
     sequence(:proposal) do |n|
       "#{n}This is a test project proposal. Testin, testing, one, two, three!"
-    end 
+    end
 
     user
   end
