@@ -1,0 +1,21 @@
+<h1>New Projects</h1>
+<% if @project.errors.any? %>
+  <ul>
+    <% @project.errors.full_messages.each do |er| %>
+      <li> <%= er %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @project do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :proposal %>
+  <%= f.text_field :proposal %>
+
+  <%= f.label :skill_list %>
+  <%= f.text_field :skill_list %>
+
+  <%= f.submit "Create Project", class: "button tiny success" %>
+<% end %>
