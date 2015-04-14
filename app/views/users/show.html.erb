@@ -1,27 +1,36 @@
-<div><%= @user.username %>'s profile</div>
+<h1><%= @user.username %>'s profile</h1>
 
-<div>About me: <%= @user.about_me %></div>
+<h3>About me: <%= @user.about_me %></h3>
 
-<% unless @projects.empty? %>
-  <ol>
-  <% @projects.each do |project| %>
-    <li><%= project.name %></li>
-  <% end %>
-  </ol>
+<h3>Projects proposed</h3>
+<% if @projects.empty? %>
+  <p><%= @user.username %> has not created any projects yet</p>
+<% else %>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><%= link_to(project.name, project_path(project)) %></li>
+    <% end %>
+  </ul>
 <% end %>
 
-<% unless @skills.empty? %>
-  <ol>
+<h3>Skills</h3>
+<% if @skills.empty? %>
+  <p><%= @user.username %> has not listed any skills yet</p>
+<% else %>
+  <ul>
     <% @skills.each do |skill| %>
       <li><%= skill.name %></li>
     <% end %>
-  </ol>
+  </ul>
 <% end %>
 
-<% unless @interests.empty? %>
-  <ol>
+<h3>Interests</h3>
+<% if @interests.empty? %>
+  <p><%= @user.username %> has not listed any interests yet</p>
+<% else %>
+  <ul>
     <% @interests.each do |interest| %>
       <li><%= interest.name %></li>
     <% end %>
-  </ol>
+  </ul>
 <% end %>

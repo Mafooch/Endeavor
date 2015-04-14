@@ -4,7 +4,8 @@ feature 'user views a list of projects', %Q{
   As a signed up user I want to sign in as view a list of projects
 } do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:project) { FactoryGirl.create(:project) }
+  let!(:project) { FactoryGirl.create(:project,
+    skill_list: "set design, carpentry", interest_list: "screenplay, history") }
   context "as a signed in user" do
     scenario 'view list of projects' do
       sign_in_as(user)
@@ -19,6 +20,8 @@ feature 'user views a list of projects', %Q{
 
       expect(page).to have_content(project.name)
       expect(page).to have_content(project.proposal)
+      expect(page).to have_content("set design")
+      expect(page).to have_content("screenplay")
     end
   end
 

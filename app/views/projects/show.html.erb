@@ -1,3 +1,26 @@
 <h1><%= @project.name %></h1>
 
+<h3>Proposal</h3>
 <p><%= @project.proposal %></p>
+
+<h3>Project skills</h3>
+<% if @skills.empty? %>
+  <p><%= @project.name %> does not have any skills yet</p>
+<% else %>
+  <ul>
+    <% @skills.each do |skill| %>
+      <li><%= skill.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h3>Project interests</h3>
+<% if @interests.empty? %>
+  <p><%= @project.name %> does not have any skills yet</p>
+<% else %>
+  <ul>
+    <% @interests.each do |interest| %>
+      <li><%= interest.name %></li>
+    <% end %>
+  </ul>
+<% end %>

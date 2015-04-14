@@ -16,6 +16,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @skills = @project.skills
+    @interests = @project.interests
   end
 
   def index
