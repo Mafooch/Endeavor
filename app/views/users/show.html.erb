@@ -10,14 +10,18 @@
   </ol>
 <% end %>
 
-<% unless @user_skills.empty? %>
+<% unless @skills.empty? %>
   <ol>
-  <% @user_skills.each do |user_skill| %>
-    <li><%= user_skill.skill.name %>:
-      <% unless user_skill.proficiency == nil %>
-        Proficiency: <%= user_skill.proficiency %>
-      <% end %>
-    </li>
-  <% end %>
+    <% @skills.each do |skill| %>
+      <li><%= skill.name %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+<% unless @interests.empty? %>
+  <ol>
+    <% @interests.each do |interest| %>
+      <li><%= interest.name %></li>
+    <% end %>
   </ol>
 <% end %>

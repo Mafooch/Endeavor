@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_skills = @user.user_skills
+    @skills = @user.skills
+    @interests = @user.interests
     @projects = @user.projects
   end
 

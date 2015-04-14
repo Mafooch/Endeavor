@@ -14,8 +14,11 @@
   <%= f.label :proposal %>
   <%= f.text_field :proposal %>
 
-  <%= f.label :skill_list %>
-  <%= f.text_field :skill_list %>
+  <%= f.label :skill_list, "Useful/important skills for this project" %>
+  <%= f.text_field :skill_list, placeholder: "comma seperated" %>
+
+  <%= f.label :interest_list, "Interests relevant to this project" %>
+  <%= f.text_field :interest_list, placeholder: "comma seperated" %>
 
   <%= f.submit "Create Project", class: "button tiny success" %>
 <% end %>

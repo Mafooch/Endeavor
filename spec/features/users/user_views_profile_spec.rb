@@ -4,11 +4,12 @@ feature 'user views their profile page', %Q{
   As a signed up user I want to sign in and view my profile page.
 } do
   context "as a signed in user" do
-    let!(:user) { FactoryGirl.create(:user) }
+    let!(:user) do
+      FactoryGirl.create(:user, skill_list: "python, screen printing",
+      interest_list: "urban design, indie film")
+    end
     let!(:project_one) { FactoryGirl.create(:project, user: user) }
     let!(:project_two) { FactoryGirl.create(:project, user: user) }
-    let!(:skill_one) { FactoryGirl.create(:user_skill, user: user) }
-    let!(:skill_two) { FactoryGirl.create(:user_skill, proficiency: 3, user: user) }
 
     scenario 'view your own profile' do
       sign_in_as(user)
@@ -20,9 +21,8 @@ feature 'user views their profile page', %Q{
       # eventually add expect picture
       expect(page).to have_content(project_one.name)
       expect(page).to have_content(project_two.name)
-      expect(page).to have_content(skill_one.skill.name)
-      expect(page).to have_content(skill_two.skill.name)
-      expect(page).to have_content(skill_two.proficiency)
+      expect(page).to have_content("screen printing")
+      expect(page).to have_content("indie film")
     end
 
     scenario "a signed in user can view someone elses profile" do
@@ -37,9 +37,8 @@ feature 'user views their profile page', %Q{
       # eventually add expect picture
       expect(page).to have_content(project_one.name)
       expect(page).to have_content(project_two.name)
-      expect(page).to have_content(skill_one.skill.name)
-      expect(page).to have_content(skill_two.skill.name)
-      expect(page).to have_content(skill_two.proficiency)
+      expect(page).to have_content("screen printing")
+      expect(page).to have_content("indie film")
     end
   end
 

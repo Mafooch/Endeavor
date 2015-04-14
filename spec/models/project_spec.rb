@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-describe Project, focus: true do
+describe Project do
   it { should belong_to(:user) }
+  it { should have_many(:skills) }
+  it { should have_many(:interests) }
 
   it { should have_valid(:name).when("Lift-Off", "The New Urban") }
   it { should_not have_valid(:name).when(
@@ -38,6 +40,14 @@ describe Project, focus: true do
 
     expect(project).to_not be_valid
     expect(project.errors[:skill_error]).to_not be_blank
+  end
+
+  it "each project must be tagged with at least two unique interests
+  (case sensitive)" do
+    project = FactoryGirl.build(:project, interest_list: "health tech, HEALTH tech")
+
+    expect(project).to_not be_valid
+    expect(project.errors[:interest_error]).to_not be_blank
   end
 
   it "project endures even after it's user is destroyed" do

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe User do
-  it { should have_many(:skills).through(:user_skills) }
   it { should have_many(:projects) }
-  it { should have_many(:user_skills).dependent(:destroy) }
+  it { should have_many(:skills) }
+  it { should have_many(:interests) }
 
   it { should have_valid(:username).when('crafts n stuff', 'artful dodger') }
   it { should_not have_valid(:username).when(
@@ -31,6 +31,22 @@ describe User do
 
     expect(user).to_not be_valid
     expect(user.errors[:password_confirmation]).to_not be_blank
+  end
+
+  it "each user must be tagged with at least two unique skills
+  (case sensitive)" do
+    user = FactoryGirl.build(:user, skill_list: "coding, Coding")
+
+    expect(user).to_not be_valid
+    expect(user.errors[:skill_error]).to_not be_blank
+  end
+
+  it "each user must be tagged with at least two unique interests
+  (case sensitive)" do
+    user = FactoryGirl.build(:user, interest_list: "health tech, HEALTH tech")
+
+    expect(user).to_not be_valid
+    expect(user.errors[:interest_error]).to_not be_blank
   end
 
 # make test for phone, zip, and profile pic
