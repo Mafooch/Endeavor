@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :user_skills, dependent: :destroy
   has_many :skills, through: :user_skills
   has_many :projects
+  acts_as_tagger
 
   validates :username,
     presence: true,

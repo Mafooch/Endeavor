@@ -20,6 +20,7 @@ FactoryGirl.define do
     sequence(:proposal) do |n|
       "#{n}This is a test project proposal. Testin, testing, one, two, three!"
     end
+    sequence(:skill_list) { |n| "skillone#{n}, skilltwo#{n}" }
 
     user
   end

@@ -1,11 +1,6 @@
 class Project < ActiveRecord::Base
   belongs_to :user
-  has_many :project_skills, dependent: :destroy
-  has_many :skills, through: :project_skills
-
   acts_as_taggable_on :skills
-
-  # before_save :proper_skill_list
 
   validate :at_least_2_skills
   validates :name,
@@ -16,7 +11,7 @@ class Project < ActiveRecord::Base
 
   validates :proposal,
     presence: true,
-    length: { minimum: 5 },
+    length: { minimum: 50 },
     uniqueness: { scope: :user,
       message: "You already have a project with the same proposal" }
 

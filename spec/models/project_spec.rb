@@ -1,11 +1,7 @@
 require 'rails_helper'
 
-describe Project do
+describe Project, focus: true do
   it { should belong_to(:user) }
-  it { should have_many(:skills).through(:project_skills) }
-  it { should have_many(:project_skills).dependent(:destroy) }
-  # A skill should not exist unless at least one project or USER possesses it
-  # How can this be done. make a child dependent either of the parents
 
   it { should have_valid(:name).when("Lift-Off", "The New Urban") }
   it { should_not have_valid(:name).when(
@@ -20,11 +16,7 @@ describe Project do
 
   it 'each project name should be unique for a given user' do
     project = FactoryGirl.create(:project)
-    project_with_same_name = Project.new(
-      name: project.name,
-      proposal: "This proposal is irrelevant for the purposes of this
-        test. We're just testing the name.",
-      user: project.user)
+    project_with_same_name = FactoryGirl.build(:project, name: project.name, user: project.user)
 
     expect(project_with_same_name).to_not be_valid
     expect(project_with_same_name.errors[:name]).to_not be_blank
@@ -38,6 +30,14 @@ describe Project do
 
     expect(project_with_same_proposal).to_not be_valid
     expect(project_with_same_proposal.errors[:proposal]).to_not be_blank
+  end
+
+  it 'each project must be tagged with at least two unique skills
+  (not case sensitive)' do
+    project = FactoryGirl.build(:project, skill_list: "coding, Coding")
+
+    expect(project).to_not be_valid
+    expect(project.errors[:skill_error]).to_not be_blank
   end
 
   it "project endures even after it's user is destroyed" do

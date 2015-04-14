@@ -11,11 +11,8 @@ feature 'user views their profile page', %Q{
     let!(:skill_two) { FactoryGirl.create(:user_skill, proficiency: 3, user: user) }
 
     scenario 'view your own profile' do
-      visit new_user_session_path
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+      sign_in_as(user)
 
-      click_button 'Log in'
       click_link("My Profile")
 
       expect(page).to have_content(user.username)
@@ -32,11 +29,8 @@ feature 'user views their profile page', %Q{
       other_user = user
       user = FactoryGirl.create(:user)
 
-      visit new_user_session_path
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+      sign_in_as(user)
 
-      click_button 'Log in'
       visit user_path(other_user)
       expect(page).to have_content(other_user.username)
       expect(page).to have_content(other_user.about_me)

@@ -4,7 +4,6 @@ describe User do
   it { should have_many(:skills).through(:user_skills) }
   it { should have_many(:projects) }
   it { should have_many(:user_skills).dependent(:destroy) }
-  # How can this be done. make a child dependent either of the parents
 
   it { should have_valid(:username).when('crafts n stuff', 'artful dodger') }
   it { should_not have_valid(:username).when(
