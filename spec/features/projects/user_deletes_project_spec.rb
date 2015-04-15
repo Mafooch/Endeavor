@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "delete a project", %q(
   As a user I want to delete one of the projects i made
-), focus: true do
+) do
   let!(:project) { FactoryGirl.create(:project) }
 
   scenario "Authenticated user successfully deletes a project they made" do

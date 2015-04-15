@@ -36,3 +36,11 @@
     <% end %>
   </ul>
 <% end %>
+
+<% if @user.id == current_user.id %>
+  <%= link_to("Edit My Profile", edit_user_registration_path) %>
+<% end %>
+
+<% if @user.id == current_user.id %>
+  <%= link_to("Delete My Profile", project_path(@user), method: :delete) %>
+<% end %>
