@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '= 5.5.1.0'
 
 group :development, :test do
   gem 'pry-rails'
