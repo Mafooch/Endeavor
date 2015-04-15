@@ -28,3 +28,7 @@
 <% if @project.user_id == current_user.id %>
   <%= link_to("Edit Project", edit_project_path(@project)) %>
 <% end %>
+
+<% if @project.user_id == current_user.id %>
+  <%= link_to("Delete Project", project_path(@project), method: :delete) %>
+<% end %>

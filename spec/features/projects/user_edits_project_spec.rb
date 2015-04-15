@@ -7,6 +7,7 @@ feature "edit a project", %q(
 
   scenario "Authenticated user successfully edits a project they made" do
     project_owner = project.user
+
     sign_in_as(project_owner)
     visit project_path(project)
     click_on("Edit Project")
@@ -31,6 +32,7 @@ feature "edit a project", %q(
     other_user = FactoryGirl.create(:user)
 
     sign_in_as(other_user)
+    
     expect(page).to_not have_content("Edit Project")
   end
 end
