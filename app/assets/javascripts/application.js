@@ -14,6 +14,18 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
-//= require rails-jquery-tokeninput
 
 $(function(){ $(document).foundation(); });
+
+$(function() {
+  $("#project_interest_list").tokenInput("/projects.json", {
+    crossDomain: false,
+    theme: "facebook",
+    allowFreeTagging: true,
+    allowCreation: true,
+    preventDuplicates: true,
+    creationText: "Add new interest",
+    allowFreeTagging: true,
+    tokenValue: 'name'
+  });
+});
