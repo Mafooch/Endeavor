@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'devise'
 gem 'foundation-rails', '= 5.5.1.0'
+gem 'rails-jquery-tokeninput'
 
 group :development, :test do
   gem 'pry-rails'

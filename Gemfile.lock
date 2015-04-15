@@ -64,7 +64,7 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    foundation-rails (5.5.1.1)
+    foundation-rails (5.5.1.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
     globalid (0.3.3)
@@ -122,6 +122,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails-jquery-tokeninput (0.2.6)
+      jquery-rails (>= 2)
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
@@ -192,13 +194,14 @@ DEPENDENCIES
   capybara
   devise
   factory_girl_rails
-  foundation-rails
+  foundation-rails (= 5.5.1.0)
   jquery-rails
   kaminari
   launchy
   pg
   pry-rails
   rails (= 4.2.1)
+  rails-jquery-tokeninput
   rspec-rails
   sass-rails (~> 5.0)
   shoulda
