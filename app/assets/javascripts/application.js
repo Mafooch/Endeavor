@@ -18,6 +18,19 @@
 $(function(){ $(document).foundation(); });
 
 $(function() {
+  $("#project_skill_list").tokenInput("/projects.json", {
+    crossDomain: false,
+    theme: "facebook",
+    allowFreeTagging: true,
+    allowCreation: true,
+    preventDuplicates: true,
+    creationText: "Add new interest",
+    allowFreeTagging: true,
+    tokenValue: 'name'
+  });
+});
+
+$(function() {
   $("#project_interest_list").tokenInput("/projects.json", {
     crossDomain: false,
     theme: "facebook",
