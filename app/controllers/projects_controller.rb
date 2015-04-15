@@ -7,10 +7,25 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(project_params)
-    binding.pry
     if @project.save
+      flash[:success] = "Project created successfully!"
       redirect_to root_path
     else
+      render :new
+    end
+  end
+
+  def edit
+    @project = current_user.projects.find(params[:id])
+  end
+
+  def update
+    @project = Project.update(params[:id], project_params)
+    if @project.save
+      flash[:success] = "Project updated successfully"
+      redirect_to(@project)
+    else
+      flash[:notice] = "Update failed"
       render :new
     end
   end
@@ -24,7 +39,6 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @skill_tags = Project.tag_counts_on(:skills).where("name like ?", "%#{params[:q]}%")
-    # binding.pry
     respond_to do |format|
       format.html
       format.json { render :json => @skill_tags }

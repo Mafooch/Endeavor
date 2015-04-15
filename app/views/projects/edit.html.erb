@@ -1,4 +1,5 @@
-<h1>New Projects</h1>
+<h1>Edit Project</h1>
+
 <% if @project.errors.any? %>
   <ul>
     <% @project.errors.full_messages.each do |er| %>
@@ -20,5 +21,7 @@
   <%= f.label :interest_list, "Interests relevant to this project" %>
   <%= f.text_field :interest_list, placeholder: "comma seperated" %>
 
-  <%= f.submit "Create Project", class: "button tiny success" %>
+  <%= f.submit "Update Project", class: "button tiny success" %>
 <% end %>
+
+<%= link_to("back to project", project_path(@project)) %>

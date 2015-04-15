@@ -13,6 +13,8 @@
   </ul>
 <% end %>
 
+<%= link_to("Propose a new project!", new_project_path) %>
+
 <h3>Skills</h3>
 <% if @skills.empty? %>
   <p><%= @user.username %> has not listed any skills yet</p>

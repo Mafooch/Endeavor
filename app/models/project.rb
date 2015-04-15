@@ -17,7 +17,6 @@ class Project < ActiveRecord::Base
     uniqueness: { scope: :user,
       message: "You already have a project with the same proposal" }
 
-
   def at_least_2_skills
     # if we return false in a callback the record will not be saved
     if skill_list.count >= 2
