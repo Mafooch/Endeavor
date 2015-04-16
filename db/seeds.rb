@@ -1,10 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+require_relative '../spec/support/factory_girl.rb'
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Faker::Internet.user_name
+# Faker::Commerce.product_name
 
 SKILLS = ["Adjusting",
           "Algorithms",
@@ -153,3 +156,16 @@ INTERESTS = ["Sports such as football, baseball, golf, soccer, tennis etc.",
             "Social work",
             "Candle making",
             "Iceskating"]
+
+
+# if Rails.env.development?
+#   FactoryGirl.build(:project)
+# end
+
+50.times do
+  project = FactoryGirl.create(
+  :project, name: Faker::Commerce.product_name, skill_list: SKILLS.sample(4).join(", "),
+  interest_list: INTERESTS.sample(4).join(", "))
+
+  project.user.update(username: Faker::Internet.user_name, skill_list: SKILLS.sample(4).join(", "), interest_list: INTERESTS.sample(4).join(", "))
+end

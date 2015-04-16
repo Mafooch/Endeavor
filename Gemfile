@@ -21,6 +21,7 @@ group :development, :test do
   gem 'launchy'
   gem 'valid_attribute'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
 end
