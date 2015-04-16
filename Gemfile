@@ -26,5 +26,5 @@ group :development, :test do
 end
 
 group :test do
-  gem 'coveralls', requires: false
+  gem 'coveralls', require: false
 end
