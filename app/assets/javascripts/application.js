@@ -18,7 +18,7 @@
 $(function(){ $(document).foundation(); });
 
 $(function() {
-  $("#project_skill_list").tokenInput("/projects.json", {
+  $("#project_skill_list").tokenInput("/projects/all_skills.json", {
     crossDomain: false,
     theme: "facebook",
     allowFreeTagging: true,
@@ -31,7 +31,7 @@ $(function() {
 });
 
 $(function() {
-  $("#project_interest_list").tokenInput("/projects.json", {
+  $("#project_interest_list").tokenInput("/projects/all_interests.json", {
     crossDomain: false,
     theme: "facebook",
     allowFreeTagging: true,

@@ -38,10 +38,27 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    @skill_tags = Project.tag_counts_on(:skills).where("name like ?", "%#{params[:q]}%")
+  end
+
+  def all_skills
+    project_skill_tags = Project.tag_counts_on(:skills).where("name like ?", "%#{params[:q]}%")
+    user_skill_tags = User.tag_counts_on(:skills).where("name like ?", "%#{params[:q]}%")
+    all_skill_tags = project_skill_tags + user_skill_tags
+    all_skill_tags.uniq!
+    
     respond_to do |format|
-      format.html
-      format.json { render :json => @skill_tags }
+      format.json { render :json => all_skill_tags }
+    end
+  end
+
+  def all_interests
+    project_interest_tags = Project.tag_counts_on(:interests).where("name like ?", "%#{params[:q]}%")
+    user_interest_tags = User.tag_counts_on(:interests).where("name like ?", "%#{params[:q]}%")
+    all_interest_tags = project_interest_tags + user_interest_tags
+    all_interest_tags.uniq!
+
+    respond_to do |format|
+      format.json { render :json => all_interest_tags }
     end
   end
 
