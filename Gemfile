@@ -17,15 +17,14 @@ gem 'rails-jquery-tokeninput'
 group :development, :test do
   gem 'pry-rails'
   gem 'shoulda'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'valid_attribute'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', require: false
 end
 
 group :test do
   gem 'coveralls', requires: false
 end
-
-gem 'rspec-rails', group: [:development, :test]
-gem 'capybara', group: [:development, :test]
-gem 'launchy', group: [:development, :test]
-gem 'factory_girl_rails', group: [:development, :test]
-gem 'valid_attribute', group: [:development, :test]
-gem 'shoulda-matchers', group: [:development, :test], require: false
