@@ -1,4 +1,8 @@
-<h1><%= @user.username %>'s profile</h1>
+<% if @user.id == current_user.id %>
+  <h1>My profile</h1>
+<% else %>
+  <h1><%= @user.username %>'s profile</h1>
+<% end %>
 
 <h6>About me: <%= @user.about_me %></h6>
 
@@ -35,6 +39,10 @@
       <li><%= interest.name %></li>
     <% end %>
   </ul>
+<% end %>
+
+<% if @user.id == current_user.id %>
+  <h3>Project Recommendations</h3>
 <% end %>
 
 <% if @user.id == current_user.id %>
