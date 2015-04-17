@@ -49,6 +49,8 @@
   <% @recommended_projects.each do |project| %>
     <%= link_to(project.name, project_path(project)) %>
   <% end %>
+<% else %>
+  <h3>You have no recommended projects at this time</h3>
 <% end %>
 
 <% if @user.id == current_user.id %>
