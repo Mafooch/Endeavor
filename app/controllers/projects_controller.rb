@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
     all_skill_tags.uniq!
 
     respond_to do |format|
-      format.json { render :json => all_skill_tags }
+      format.json { render json: all_skill_tags }
     end
   end
 
@@ -63,7 +63,7 @@ class ProjectsController < ApplicationController
     all_interest_tags.uniq!
 
     respond_to do |format|
-      format.json { render :json => all_interest_tags }
+      format.json { render json: all_interest_tags }
     end
   end
 
