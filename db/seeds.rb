@@ -96,7 +96,6 @@ SKILLS = ["Adjusting",
           "Troubleshooting",
           "Usability"]
 
-
 INTERESTS = ["Sports such as football, baseball, golf, soccer, tennis etc.",
              "Photography/Videography",
              "Movies and Theater",
