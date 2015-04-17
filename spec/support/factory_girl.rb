@@ -26,7 +26,7 @@ FactoryGirl.define do
 
     sequence(:skill_list) { |n| "skillone#{n}, skilltwo#{n}" }
     sequence(:interest_list) { |n| "interest_one#{n}, interest_two#{n}" }
-    
+
     user
   end
 end

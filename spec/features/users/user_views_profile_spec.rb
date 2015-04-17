@@ -16,7 +16,7 @@ feature 'user views their profile page', %Q{
 
       click_link("My Profile")
 
-      expect(page).to have_content(user.username)
+      expect(page).to have_content("My Profile")
       expect(page).to have_content(user.about_me)
       # eventually add expect picture
       expect(page).to have_content(project_one.name)
