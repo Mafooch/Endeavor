@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @recommended_users = @project.recommended_users
     @skills = @project.skills
     @interests = @project.interests
   end
@@ -45,7 +46,7 @@ class ProjectsController < ApplicationController
     user_skill_tags = User.tag_counts_on(:skills).where("name like ?", "%#{params[:q]}%")
     all_skill_tags = project_skill_tags + user_skill_tags
     all_skill_tags.uniq!
-    
+
     respond_to do |format|
       format.json { render :json => all_skill_tags }
     end

@@ -25,6 +25,14 @@
   </ul>
 <% end %>
 
+<% if @recommended_users.any? %>
+  <h3>Recommended users for this project</h3>
+
+  <% @recommended_users.each do |user| %>
+    <%= link_to(user.username, user_path(user)) %>
+  <% end %>
+<% end %>
+
 <% if @project.user_id == current_user.id %>
   <%= link_to("Edit Project", edit_project_path(@project)) %>
 <% end %>
