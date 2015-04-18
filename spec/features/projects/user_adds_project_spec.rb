@@ -25,6 +25,16 @@ feature "add a project", %q(
     expect(page).to have_content(user.projects.last.name)
   end
 
+  scenario "User can not create a project from another users profile" do
+    user = FactoryGirl.create(:user)
+    other_user = FactoryGirl.create(:user)
+
+    sign_in_as(user)
+    visit user_path(other_user)
+
+    expect(page).to_not have_content("Propose a new project!")
+  end
+
   scenario "guest unsuccessfully attempts to add a project" do
 
     visit new_project_path

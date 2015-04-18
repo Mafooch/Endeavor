@@ -9,8 +9,8 @@ feature "edit user account", %q(As a user I want edit my own account) do
     sign_in_as(current_user)
     visit user_path(current_user)
     click_on("Edit My Profile")
-    fill_in "Skills", with: "surfing, water colors"
-    fill_in "Interests", with: "contemporary art, urban planning"
+    fill_in "What are your skills?", with: "surfing, water colors"
+    fill_in "What are your interests?", with: "contemporary art, urban planning"
     fill_in "Current password", with: current_user.password
     click_on("Update Profile")
 

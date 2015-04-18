@@ -18,27 +18,55 @@
 $(function(){ $(document).foundation(); });
 
 $(function() {
-  $("#project_skill_list").tokenInput("/projects.json", {
+  $("#project_skill_list").tokenInput("/projects/all_skills.json", {
     crossDomain: false,
+    prePopulate: $("#project_skill_list").data("pre"),
     theme: "facebook",
     allowFreeTagging: true,
     allowCreation: true,
     preventDuplicates: true,
-    creationText: "Add new interest",
-    allowFreeTagging: true,
-    tokenValue: 'name'
+    creationText: "Add new skill",
+    tokenValue: "name"
   });
 });
 
 $(function() {
-  $("#project_interest_list").tokenInput("/projects.json", {
+  $("#project_interest_list").tokenInput("/projects/all_interests.json", {
     crossDomain: false,
+    prePopulate: $("#project_interest_list").data("pre"),
     theme: "facebook",
     allowFreeTagging: true,
     allowCreation: true,
     preventDuplicates: true,
     creationText: "Add new interest",
     allowFreeTagging: true,
-    tokenValue: 'name'
+    tokenValue: "name"
+  });
+});
+
+$(function() {
+  $("#user_skill_list").tokenInput("/projects/all_skills.json", {
+    crossDomain: false,
+    prePopulate: $("#user_skill_list").data("pre"),
+    theme: "facebook",
+    allowFreeTagging: true,
+    allowCreation: true,
+    preventDuplicates: true,
+    creationText: "Add new skill",
+    tokenValue: "name"
+  });
+});
+
+$(function() {
+  $("#user_interest_list").tokenInput("/projects/all_interests.json", {
+    crossDomain: false,
+    prePopulate: $("#user_interest_list").data("pre"),
+    theme: "facebook",
+    allowFreeTagging: true,
+    allowCreation: true,
+    preventDuplicates: true,
+    creationText: "Add new interest",
+    allowFreeTagging: true,
+    tokenValue: "name"
   });
 });

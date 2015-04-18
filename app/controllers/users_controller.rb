@@ -2,10 +2,13 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    @recommended_projects = User.find(params[:id]).recommended_projects
+    # this line comes first, so destroyed 'ideal project' will not be attached
+    # to @user
     @user = User.find(params[:id])
+    @projects = @user.projects
     @skills = @user.skills
     @interests = @user.interests
-    @projects = @user.projects
   end
 
   def index
@@ -26,10 +29,4 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
-  private
-
-  # def user_params
-  #   params.require(:user).permit(:)
-  # end
 end

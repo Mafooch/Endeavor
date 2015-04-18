@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
+ruby "2.1.5"
+
 # What rails came with
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.0'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -17,11 +19,17 @@ gem 'rails-jquery-tokeninput'
 group :development, :test do
   gem 'pry-rails'
   gem 'shoulda'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'valid_attribute'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', require: false
 end
 
-gem 'rspec-rails', group: [:development, :test]
-gem 'capybara', group: [:development, :test]
-gem 'launchy', group: [:development, :test]
-gem 'factory_girl_rails', group: [:development, :test]
-gem 'valid_attribute', group: [:development, :test]
-gem 'shoulda-matchers', group: [:development, :test], require: false
+gem 'rails_12factor', group: :production
+
+group :test do
+  gem 'coveralls', require: false
+end

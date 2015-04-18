@@ -1,4 +1,8 @@
-<h1><%= @user.username %>'s profile</h1>
+<% if @user.id == current_user.id %>
+  <h1>My profile</h1>
+<% else %>
+  <h1><%= @user.username %>'s profile</h1>
+<% end %>
 
 <h6>About me: <%= @user.about_me %></h6>
 
@@ -13,7 +17,9 @@
   </ul>
 <% end %>
 
-<%= link_to("Propose a new project!", new_project_path) %>
+<% if @user.id == current_user.id %>
+  <%= link_to("Propose a new project!", new_project_path) %>
+<% end %>
 
 <h3>Skills</h3>
 <% if @skills.empty? %>
@@ -35,6 +41,16 @@
       <li><%= interest.name %></li>
     <% end %>
   </ul>
+<% end %>
+
+<% if @recommended_projects.any? %>
+  <h3>Project Recommendations</h3>
+
+  <% @recommended_projects.each do |project| %>
+    <%= link_to(project.name, project_path(project)) %>
+  <% end %>
+<% else %>
+  <h3>You have no recommended projects at this time</h3>
 <% end %>
 
 <% if @user.id == current_user.id %>
