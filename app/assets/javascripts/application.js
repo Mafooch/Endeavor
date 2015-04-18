@@ -20,6 +20,21 @@ $(function(){ $(document).foundation(); });
 $(function() {
   $("#project_skill_list").tokenInput("/projects/all_skills.json", {
     crossDomain: false,
+    prePopulate: $("#project_skill_list").data("pre"),
+    theme: "facebook",
+    allowFreeTagging: true,
+    allowCreation: true,
+    preventDuplicates: true,
+    creationText: "Add new skill",
+    allowFreeTagging: true,
+    tokenValue: 'name'
+  });
+});
+
+$(function() {
+  $("#project_interest_list").tokenInput("/projects/all_interests.json", {
+    crossDomain: false,
+    prePopulate: $("#project_interest_list").data("pre"),
     theme: "facebook",
     allowFreeTagging: true,
     allowCreation: true,
@@ -31,8 +46,23 @@ $(function() {
 });
 
 $(function() {
-  $("#project_interest_list").tokenInput("/projects/all_interests.json", {
+  $("#user_skill_list").tokenInput("/projects/all_skills.json", {
     crossDomain: false,
+    prePopulate: $("#user_skill_list").data("pre"),
+    theme: "facebook",
+    allowFreeTagging: true,
+    allowCreation: true,
+    preventDuplicates: true,
+    creationText: "Add new skill",
+    allowFreeTagging: true,
+    tokenValue: 'name'
+  });
+});
+
+$(function() {
+  $("#user_interest_list").tokenInput("/projects/all_interests.json", {
+    crossDomain: false,
+    prePopulate: $("#user_interest_list").data("pre"),
     theme: "facebook",
     allowFreeTagging: true,
     allowCreation: true,

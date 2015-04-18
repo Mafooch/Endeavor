@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:all_skills, :all_interests]
 
   def new
     @project = Project.new

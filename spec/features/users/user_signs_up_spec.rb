@@ -16,8 +16,8 @@ feature 'user registers', %Q{
     visit new_user_registration_path
 
     fill_in 'Username', with: 'craftyjohn'
-    fill_in 'Skills', with: 'rails, graphic design'
-    fill_in 'Interests', with: 'contemporary art, coffee bean roasting'
+    fill_in 'What are your skills?', with: 'rails, graphic design'
+    fill_in 'What are your interests?', with: 'contemporary art, coffee bean roasting'
     fill_in 'Zip code', with: '02111'
     fill_in 'Email', with: 'john@example.com'
     fill_in 'First name', with: "John"

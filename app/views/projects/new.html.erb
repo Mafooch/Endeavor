@@ -15,7 +15,7 @@
   <%= f.text_field :proposal %>
 
   <%= f.label :skill_list, "Useful skills for this project" %>
-  <%= f.text_field :skill_list, placeholder: "comma seperated" %>
+  <%= f.text_field :skill_list, placeholder: "comma seperated", "data-pre" => @project.skill_list.to_json %>
 
   <%= f.label :interest_list, "Interests relevant to this project" %>
   <%= f.text_field :interest_list, placeholder: "comma seperated" %>
