@@ -26,8 +26,7 @@ $(function() {
     allowCreation: true,
     preventDuplicates: true,
     creationText: "Add new skill",
-    allowFreeTagging: true,
-    tokenValue: 'name'
+    tokenValue: "name"
   });
 });
 
@@ -41,7 +40,7 @@ $(function() {
     preventDuplicates: true,
     creationText: "Add new interest",
     allowFreeTagging: true,
-    tokenValue: 'name'
+    tokenValue: "name"
   });
 });
 
@@ -54,8 +53,7 @@ $(function() {
     allowCreation: true,
     preventDuplicates: true,
     creationText: "Add new skill",
-    allowFreeTagging: true,
-    tokenValue: 'name'
+    tokenValue: "name"
   });
 });
 
@@ -69,6 +67,6 @@ $(function() {
     preventDuplicates: true,
     creationText: "Add new interest",
     allowFreeTagging: true,
-    tokenValue: 'name'
+    tokenValue: "name"
   });
 });

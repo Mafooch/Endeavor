@@ -17,7 +17,8 @@ feature 'user registers', %Q{
 
     fill_in 'Username', with: 'craftyjohn'
     fill_in 'What are your skills?', with: 'rails, graphic design'
-    fill_in 'What are your interests?', with: 'contemporary art, coffee bean roasting'
+    fill_in 'What are your interests?',
+      with: 'contemporary art, coffee bean roasting'
     fill_in 'Zip code', with: '02111'
     fill_in 'Email', with: 'john@example.com'
     fill_in 'First name', with: "John"
