@@ -1,4 +1,19 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+<div class="row">
+  <div class="small-12 columns splash-header">
+    <h1>ENDEAVOR</h1>
+    <h3>Use the skills you have</h3>
+    <h3>to work on the projects you love</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns splash-actions">
+    <%- if current_user -%>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "button large round" %>
+      <%= link_to "My Profile",user_path(current_user), class: "button large round" %>
+    <%- else -%>
+      <%= link_to 'Sign Up', new_user_registration_path, class: "button large round" %>
+      <%= link_to 'Sign In', new_user_session_path, class: "button large round" %>
+    <%- end -%>
+  </div>
+</div>

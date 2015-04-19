@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+ */
+
+$main-color: #F2F2F2; /* a faint grey for the page background*/
+$secondary-color: #339999; /* blue*/
+$tertiary-color: #EA4C42; /* salmon*/
+$fourth-color: #C7C7C7; /* darker grey*/
+
+$primary-font-color: #121212;
+$secondary-font-color: #F4F4F1;
+
+body {
+  background-color: $main-color;
+  background-image: url("splash.png");
+}
+
+.splash-header {
+  margin-top: 6em;
+  text-align: center;
+    h1 {
+      font-family: Gudea;
+      color: $primary-font-color;
+      border-bottom: double #9A9A9A;
+      margin-bottom: 2rem;
+    }
+    h3 {
+      font-family: Raleway;
+      color: $primary-font-color;
+    }
+}
+
+.splash-actions {
+  text-align: center;
+  margin-top: 3em;
+  a {
+    background-color: $fourth-color;
+    margin: 0 1em 0 1em;
+    &:hover {
+      background-color: $secondary-color;
+      color: $secondary-font-color;
+    }
+  }
+}
