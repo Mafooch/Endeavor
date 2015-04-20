@@ -34,7 +34,7 @@ $secondary-font-color: #F4F4F1;
     h1 {
       font-family: Gudea;
       color: $secondary-font-color;
-      border-bottom: double $fourth-color;
+      border-bottom: double $fourth-color .5em;
       margin-bottom: 2rem;
     }
     h3 {
@@ -48,10 +48,87 @@ $secondary-font-color: #F4F4F1;
   margin-top: 3em;
   a {
     background-color: $fourth-color;
+    font-family: Cabin;
     margin: 0 1em 0 1em;
     &:hover {
       background-color: $main-color;
       color: $primary-font-color;
     }
   }
+}
+
+.user-page-body {
+  text-align: center;
+  background-color: white;
+  & > .row {
+    background-color: $main-color;
+  }
+  h1, h3, h6, p, li {
+    color: $primary-font-color;
+  }
+  h1, h3 {
+    font-family: Gudea;
+  }
+  h6, p, li {
+    font-family: Raleway;
+  }
+  a {
+    font-family: Cabin;
+    font-size: 1.2em;
+    &:hover {
+      color: $secondary-color;
+      background-color: $main-color;
+    }
+  }
+  li {
+    list-style: none;
+  }
+  .button {
+    color: $secondary-font-color;
+    background-color: $secondary-color;
+    &:hover {
+      background-color: $fourth-color;
+    }
+  }
+  .edit-profile {
+    margin-right: 1em;
+    width: 10em;
+  }
+  .delete-profile {
+    margin-left: 1em;
+    width: 10em;
+    &:hover {
+      background-color: $tertiary-color;
+    }
+  }
+}
+
+.profile-header {
+  border-bottom: double $fourth-color .5em;
+  margin: 3em 0 4em 0;
+}
+
+.skills-section, .interests-section {
+  h3 {
+    text-align: center;
+    text-decoration: underline;
+  }
+  ul {
+    margin: 0;
+  }
+  li{
+    text-align: center;
+  }
+}
+
+.about-me-section {
+  margin-bottom: 2em;
+}
+
+.project-proposals-section {
+  margin-bottom: 3em;
+}
+
+.profile-actions {
+  margin-top: 7em;
 }

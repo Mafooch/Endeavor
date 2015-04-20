@@ -1,80 +1,93 @@
-<div class="row">
-  <div class="small-12 columns profile-header">
-
+<body class="user-page-body">
+  <div class="row">
+    <div class="small-12 columns profile-header">
+      <% if @user.id == current_user.id %>
+        <h1>My profile</h1>
+      <% else %>
+        <h1><%= @user.username %>'s profile</h1>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="small-12 columns profile-header">
+  <div class="row">
+    <div class="small-2 columns skills-section">
+      <h3>Skills</h3>
+      <% if @skills.empty? %>
+        <p><%= @user.username %> has not listed any skills yet</p>
+      <% else %>
+        <ul>
+          <% @skills.each do |skill| %>
+            <li><%= skill.name %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
 
+    <div class="small-8 columns">
+      <div class="row">
+        <div class="small-12 columns about-me-section">
+          <h6>About me: <%= @user.about_me %></h6>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns project-proposals-section">
+          <h3>Projects proposed</h3>
+          <% if @projects.empty? %>
+            <p><%= @user.username %> has not created any projects yet</p>
+          <% else %>
+            <ul>
+              <% @projects.each do |project| %>
+                <li><%= link_to(project.name, project_path(project)) %></li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <% if @user.id == current_user.id %>
+            <%= link_to("Propose a new project!", new_project_path, class: "button small round new-project") %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns recommended_projects-section">
+          <% if @user.id == current_user.id %>
+            <% if @recommended_projects.any? %>
+              <h3>Project Recommendations</h3>
+
+              <% @recommended_projects.each do |project| %>
+                <ul>
+                  <li><%= link_to(project.name, project_path(project)) %></li>
+                </ul>
+              <% end %>
+            <% else %>
+              <h6>You have no recommended projects at this time</h6>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="small-2 columns interests-section">
+      <h3>Interests</h3>
+      <% if @interests.empty? %>
+        <p><%= @user.username %> has not listed any interests yet</p>
+      <% else %>
+        <ul>
+          <% @interests.each do |interest| %>
+            <li><%= interest.name %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns profile-actions">
+        <% if @user.id == current_user.id %>
+          <%= link_to("Edit My Profile", edit_user_registration_path, class: "button small round edit-profile") %>
+          <%= link_to("Delete My Profile", project_path(@user), method: :delete, class: "button small round delete-profile") %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
-
-
-
-
-
-
-<% if @user.id == current_user.id %>
-  <h1>My profile</h1>
-<% else %>
-  <h1><%= @user.username %>'s profile</h1>
-<% end %>
-
-<h6>About me: <%= @user.about_me %></h6>
-
-<h3>Projects proposed</h3>
-<% if @projects.empty? %>
-  <p><%= @user.username %> has not created any projects yet</p>
-<% else %>
-  <ul>
-    <% @projects.each do |project| %>
-      <li><%= link_to(project.name, project_path(project)) %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<% if @user.id == current_user.id %>
-  <%= link_to("Propose a new project!", new_project_path) %>
-<% end %>
-
-<h3>Skills</h3>
-<% if @skills.empty? %>
-  <p><%= @user.username %> has not listed any skills yet</p>
-<% else %>
-  <ul>
-    <% @skills.each do |skill| %>
-      <li><%= skill.name %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<h3>Interests</h3>
-<% if @interests.empty? %>
-  <p><%= @user.username %> has not listed any interests yet</p>
-<% else %>
-  <ul>
-    <% @interests.each do |interest| %>
-      <li><%= interest.name %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<% if @recommended_projects.any? %>
-  <h3>Project Recommendations</h3>
-
-  <% @recommended_projects.each do |project| %>
-    <%= link_to(project.name, project_path(project)) %>
-  <% end %>
-<% else %>
-  <h3>You have no recommended projects at this time</h3>
-<% end %>
-
-<% if @user.id == current_user.id %>
-  <%= link_to("Edit My Profile", edit_user_registration_path) %>
-<% end %>
-
-<% if @user.id == current_user.id %>
-  <%= link_to("Delete My Profile", project_path(@user), method: :delete) %>
-<% end %>
-</div>
+</body>
