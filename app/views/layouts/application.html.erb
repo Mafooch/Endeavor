@@ -9,39 +9,15 @@
 </head>
 <body>
 
-<!-- <nav class="top-bar">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="/">Endeavor</a></h1>
-    </li>
-  </ul>
-
-  <section class="top-bar-section">
-    <ul class="right">
-      <%- if current_user -%>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "My Profile",user_path(current_user) %></li>
-      <%- else -%>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-      <%- end -%>
-    </ul>
-  </section>
-</nav>
- -->
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
     </div>
   <%- end -%>
-  <div class="row">
-    <div class="small-12 columns">
       <%= yield %>
-    </div>
-  </div>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
-  
+
 </body>
 </html>

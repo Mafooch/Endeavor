@@ -1,4 +1,26 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Endeavor</a></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <%- if current_user -%>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "My Profile",user_path(current_user) %></li>
+      <%- else -%>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
+    </ul>
+  </section>
+</nav>
+
+
 <body class="user-page-body">
+
   <div class="row">
     <div class="small-12 columns profile-header">
       <% if @user.id == current_user.id %>
@@ -10,7 +32,7 @@
   </div>
 
   <div class="row">
-    <div class="small-2 columns skills-section">
+    <div class="small-3 columns skills-section">
       <h3>Skills</h3>
       <% if @skills.empty? %>
         <p><%= @user.username %> has not listed any skills yet</p>
@@ -23,7 +45,7 @@
       <% end %>
     </div>
 
-    <div class="small-8 columns">
+    <div class="small-6 columns">
       <div class="row">
         <div class="small-12 columns about-me-section">
           <h6>About me: <%= @user.about_me %></h6>
@@ -48,7 +70,7 @@
           <% end %>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="small-12 columns recommended_projects-section">
           <% if @user.id == current_user.id %>
@@ -86,7 +108,7 @@
       </div>
     </div>
 
-    <div class="small-2 columns interests-section">
+    <div class="small-3 columns interests-section">
       <h3>Interests</h3>
       <% if @interests.empty? %>
         <p><%= @user.username %> has not listed any interests yet</p>

@@ -109,12 +109,15 @@ $secondary-font-color: #F4F4F1;
 }
 
 .skills-section, .interests-section {
+  margin-top: 3em;
   h3 {
     text-align: center;
     text-decoration: underline;
   }
   ul {
     margin: 0;
+    border-left: .1em solid black;
+    border-right: .1em solid black;
   }
   li{
     text-align: center;
@@ -139,6 +142,6 @@ $secondary-font-color: #F4F4F1;
 
 #recommended-projects-list {
 	li {
-		padding: .3em .3em;
+		padding: .5em .5em;
 	}
 }
