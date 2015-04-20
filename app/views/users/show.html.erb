@@ -48,22 +48,40 @@
           <% end %>
         </div>
       </div>
-
+      
       <div class="row">
         <div class="small-12 columns recommended_projects-section">
           <% if @user.id == current_user.id %>
             <% if @recommended_projects.any? %>
               <h3>Project Recommendations</h3>
-
-              <% @recommended_projects.each do |project| %>
-                <ul>
-                  <li><%= link_to(project.name, project_path(project)) %></li>
-                </ul>
-              <% end %>
+              <ul id="recommended-projects-list">
+                <% @recommended_projects.each do |project| %>
+                  <li><a href="/projects/<%= project.id %>" data-dropdown="project-hover-<%= project.id %>" data-options="is_hover:true; hover_timeout:0"><%= project.name %></a>
+                    <ul id="project-hover-<%= project.id %>" class="f-dropdown" data-dropdown-content>
+                      <h6>You match on:</h6>
+                      <% project.users_matches(@user).each do |match| %>
+                        <li><%= match.keys.first %>: <%= match.values.first %></li>
+                      <% end %>
+                    </ul>
+                  </li>
+                <% end %>
+              </ul>
             <% else %>
               <h6>You have no recommended projects at this time</h6>
             <% end %>
           <% end %>
+          <!-- <% if @user.id == current_user.id %>
+            <% if @recommended_projects.any? %>
+              <h3>Project Recommendations</h3>
+              <ul>
+                <% @recommended_projects.each do |project| %>
+                  <li><%= link_to(project.name, project_path(project)) %></li>
+                <% end %>
+              </ul>
+            <% else %>
+              <h6>You have no recommended projects at this time</h6>
+            <% end %>
+          <% end %> -->
         </div>
       </div>
     </div>

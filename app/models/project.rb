@@ -37,6 +37,25 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def users_matches(user)
+    matches = Array.new
+    (user.skill_list & self.skill_list).each do |match|
+      matches << { "skill" => match }
+    end
+    (user.interest_list & self.interest_list).each do |match|
+      matches << { "interest" => match }
+    end
+    matches
+  end
+
+  def users_matching_skills(user)
+    user.skill_list & self.skill_list
+  end
+
+  def users_matching_interests(user)
+    user.interest_list & self.interest_list
+  end
+
   def recommended_users
     ideal_user = User.create(
       username: "ideal user",
