@@ -92,18 +92,6 @@
               <h6>You have no recommended projects at this time</h6>
             <% end %>
           <% end %>
-          <!-- <% if @user.id == current_user.id %>
-            <% if @recommended_projects.any? %>
-              <h3>Project Recommendations</h3>
-              <ul>
-                <% @recommended_projects.each do |project| %>
-                  <li><%= link_to(project.name, project_path(project)) %></li>
-                <% end %>
-              </ul>
-            <% else %>
-              <h6>You have no recommended projects at this time</h6>
-            <% end %>
-          <% end %> -->
         </div>
       </div>
     </div>
@@ -121,13 +109,22 @@
       <% end %>
     </div>
 
-    <div class="row">
-      <div class="small-12 columns profile-actions">
-        <% if @user.id == current_user.id %>
-          <%= link_to("Edit My Profile", edit_user_registration_path, class: "button small round edit-profile") %>
-          <%= link_to("Delete My Profile", project_path(@user), method: :delete, class: "button small round delete-profile") %>
-        <% end %>
+    <% unless @user.id == current_user.id %>
+      <div class="row">
+        <div class="small-12 columns contact">
+          <img src="<%= asset_path('contact-icon.png') %>">
+          <%= mail_to(@user.email, "contact #{@user.username}") %>
+        </div>
       </div>
-    </div>
+    <% end %>
+
+    <% if @user.id == current_user.id %>
+      <div class="row">
+        <div class="small-12 columns profile-actions">
+            <%= link_to("Edit My Profile", edit_user_registration_path, class: "button small round edit-profile") %>
+            <%= link_to("Delete My Profile", project_path(@user), method: :delete, class: "button small round delete-profile") %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </body>

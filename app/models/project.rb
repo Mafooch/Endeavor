@@ -82,20 +82,23 @@ class Project < ActiveRecord::Base
     User.destroy(ideal_user.id)
 
     recommended_users.each do |user|
-      skill_intersection = ideal_skills & user.skill_list
-      interest_intersection = ideal_interests & user.interest_list
-      if skill_intersection.any? && interest_intersection.any?
-        score = 5
-        # if they have a match on both skills and interests that should
-        # have a higher recommendation value
-        score = score + skill_intersection.count + interest_intersection.count
-        scored_users[user] = score
-      elsif skill_intersection.any?
-        score = skill_intersection.count
-        scored_users[user] = score
-      else
-        score = interest_intersection.count
-        scored_users[user] = score
+      unless user.id == self.user.id
+        # i don't want to be recommended for my own project
+        skill_intersection = ideal_skills & user.skill_list
+        interest_intersection = ideal_interests & user.interest_list
+        if skill_intersection.any? && interest_intersection.any?
+          score = 5
+          # if they have a match on both skills and interests that should
+          # have a higher recommendation value
+          score = score + skill_intersection.count + interest_intersection.count
+          scored_users[user] = score
+        elsif skill_intersection.any?
+          score = skill_intersection.count
+          scored_users[user] = score
+        else
+          score = interest_intersection.count
+          scored_users[user] = score
+        end
       end
     end
     scored_users = scored_users.sort_by { |_user, score| score }.reverse

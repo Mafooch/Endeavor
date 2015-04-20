@@ -57,7 +57,7 @@ $secondary-font-color: #F4F4F1;
   }
 }
 
-.user-page-body {
+.user-page-body, .project-page-body {
   text-align: center;
   background-color: white;
   & > .row {
@@ -90,11 +90,11 @@ $secondary-font-color: #F4F4F1;
       background-color: $fourth-color;
     }
   }
-  .edit-profile {
+  .edit-profile, .edit-project {
     margin-right: 1em;
     width: 10em;
   }
-  .delete-profile {
+  .delete-profile, .delete-project {
     margin-left: 1em;
     width: 10em;
     &:hover {
@@ -128,11 +128,15 @@ $secondary-font-color: #F4F4F1;
   margin-bottom: 2em;
 }
 
+.contact {
+  margin: 4em 0 1em 0;
+}
+
 .project-proposals-section {
   margin-bottom: 3em;
 }
 
-.profile-actions {
+.profile-actions, .project-actions {
   margin-top: 7em;
 }
 
@@ -140,8 +144,32 @@ $secondary-font-color: #F4F4F1;
   margin-bottom: 0;
 }
 
-#recommended-projects-list {
+#recommended-projects-list, #recommended-users-list {
 	li {
 		padding: .5em .5em;
 	}
+}
+
+.project-name {
+  margin: 2em 1em;
+}
+
+.proposal {
+  padding: 0 5em 0 5em;
+}
+
+.project-skills-section {
+  margin-top: 5em;
+}
+
+.project-interests-section {
+  margin-bottom: 3em;
+}
+
+.project-skills-section li {
+  font-size: 1.2em;
+}
+
+.project-interests-section li {
+  font-size: 1.2em;
 }

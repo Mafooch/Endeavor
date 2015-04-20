@@ -51,6 +51,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  def project_matches(project)
+    matches = Array.new
+    (project.skill_list & self.skill_list).each do |match|
+      matches << { "skill" => match }
+    end
+    (project.interest_list & self.interest_list).each do |match|
+      matches << { "interest" => match }
+    end
+    matches
+  end
+
   def recommended_projects
     ideal_project = projects.create(
       name: "ideal project",
@@ -72,20 +83,23 @@ class User < ActiveRecord::Base
     Project.destroy(ideal_project.id)
 
     recommended_projects.each do |proj|
-      skill_intersection = ideal_skills & proj.skill_list
-      interest_intersection = ideal_interests & proj.interest_list
-      if skill_intersection.any? && interest_intersection.any?
-        score = 5
-        # if they have a match on both skills and interests that should
-        # have a higher recommendation value
-        score = score + skill_intersection.count + interest_intersection.count
-        scored_projects[proj] = score
-      elsif skill_intersection.any?
-        score = skill_intersection.count
-        scored_projects[proj] = score
-      else
-        score = interest_intersection.count
-        scored_projects[proj] = score
+      unless proj.user.id == self.id
+        # i don't want to be recommended one of my own projects
+        skill_intersection = ideal_skills & proj.skill_list
+        interest_intersection = ideal_interests & proj.interest_list
+        if skill_intersection.any? && interest_intersection.any?
+          score = 5
+          # if they have a match on both skills and interests that should
+          # have a higher recommendation value
+          score = score + skill_intersection.count + interest_intersection.count
+          scored_projects[proj] = score
+        elsif skill_intersection.any?
+          score = skill_intersection.count
+          scored_projects[proj] = score
+        else
+          score = interest_intersection.count
+          scored_projects[proj] = score
+        end
       end
     end
     scored_projects = scored_projects.sort_by { |_proj, score| score }.reverse
