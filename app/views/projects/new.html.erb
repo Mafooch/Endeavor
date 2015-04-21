@@ -1,24 +1,28 @@
-<h1>New Projects</h1>
-<% if @project.errors.any? %>
-  <ul>
-    <% @project.errors.full_messages.each do |er| %>
-      <li> <%= er %> </li>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>New Projects</h1>
+    <% if @project.errors.any? %>
+      <ul>
+        <% @project.errors.full_messages.each do |er| %>
+          <li> <%= er %> </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<%= form_for @project do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <%= form_for @project do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-  <%= f.label :proposal %>
-  <%= f.text_field :proposal %>
+      <%= f.label :proposal %>
+      <%= f.text_field :proposal %>
 
-  <%= f.label :skill_list, "Useful skills for this project" %>
-  <%= f.text_field :skill_list, placeholder: "comma seperated", "data-pre" => @project.skill_list.to_json %>
+      <%= f.label :skill_list, "Useful skills for this project" %>
+      <%= f.text_field :skill_list, placeholder: "comma seperated", "data-pre" => @project.skill_list.to_json %>
 
-  <%= f.label :interest_list, "Interests relevant to this project" %>
-  <%= f.text_field :interest_list, placeholder: "comma seperated" %>
+      <%= f.label :interest_list, "Interests relevant to this project" %>
+      <%= f.text_field :interest_list, placeholder: "comma seperated" %>
 
-  <%= f.submit "Create Project", class: "button tiny success" %>
-<% end %>
+      <%= f.submit "Create Project", class: "button tiny success" %>
+    <% end %>
+  </div>
+</div>

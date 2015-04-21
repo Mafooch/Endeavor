@@ -1,8 +1,37 @@
-<h1>All Projects</h1>
-<% unless @projects.empty? %>
-  <ul>
-    <% @projects.each do |project| %>
-      <li><%= project.name %></li>
-    <% end %>
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Endeavor</a></h1>
+    </li>
   </ul>
-<% end %>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <%- if current_user -%>
+        <li><%= link_to("Recommended Projects", recommended_projects_path) %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "My Profile",user_path(current_user) %></li>
+      <%- else -%>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
+    </ul>
+  </section>
+</nav>
+
+<body class="projects-page">
+  <div class="row">
+    <div class="small-12 columns">
+      <h1>All Projects</h1>
+      <% if @projects.empty? %>
+        <h3>There are no projects at this time. Check again soon!</h3>
+      <% else %>
+        <ul>
+          <% @projects.each do |project| %>
+            <li><%= link_to(project.name, project_path(project)) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</body>

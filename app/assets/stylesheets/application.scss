@@ -57,7 +57,7 @@ $secondary-font-color: #F4F4F1;
   }
 }
 
-.user-page-body, .project-page-body {
+.user-page-body, .project-page-body, .projects-page, .recommended-projects-page {
   text-align: center;
   background-color: #ffffff;
   & > .row {
@@ -66,10 +66,10 @@ $secondary-font-color: #F4F4F1;
   h1, h3, h6, p, li {
     color: $primary-font-color;
   }
-  h1, h3 {
+  h1, h3, th {
     font-family: Gudea;
   }
-  h6, p, li {
+  h6, p, li, td {
     font-family: Raleway;
   }
   a {
@@ -172,4 +172,41 @@ $secondary-font-color: #F4F4F1;
 
 .project-interests-section li {
   font-size: 1.2em;
+}
+
+.recommended-project-row {
+  border-bottom: .2em solid $tertiary-color;
+  .columns {
+    padding: 1em 0 1em 0;
+  }
+  #project-name-column{
+    padding-top: 1.5em;
+    p {
+      padding-top: 1em;
+    }
+  }
+}
+
+.project-skill-column, .project-interest-column {
+  ul {
+    margin-left: 0;
+    .match {
+      color: $secondary-color;
+      font-weight: bold;
+    }
+  }
+}
+
+.button {
+  color: $secondary-font-color;
+  background-color: $secondary-color;
+  &:hover {
+    background-color: $fourth-color;
+  }
+}
+
+.delete-profile-button, .delete-project {
+  &:hover {
+    background-color: $tertiary-color;
+  }
 }

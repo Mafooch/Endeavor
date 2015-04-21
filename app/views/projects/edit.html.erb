@@ -1,27 +1,31 @@
-<h1>Edit Project</h1>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>Edit Project</h1>
 
-<% if @project.errors.any? %>
-  <ul>
-    <% @project.errors.full_messages.each do |er| %>
-      <li> <%= er %> </li>
+    <% if @project.errors.any? %>
+      <ul>
+        <% @project.errors.full_messages.each do |er| %>
+          <li> <%= er %> </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<%= form_for @project do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <%= form_for @project do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-  <%= f.label :proposal %>
-  <%= f.text_field :proposal %>
+      <%= f.label :proposal %>
+      <%= f.text_field :proposal %>
 
-  <%= f.label :skill_list, "Useful skills for this project" %>
-  <%= f.text_field :skill_list, placeholder: "comma seperated", "data-pre" => @project.skills.map(&:attributes).to_json %>
+      <%= f.label :skill_list, "Useful skills for this project" %>
+      <%= f.text_field :skill_list, placeholder: "comma seperated", "data-pre" => @project.skills.map(&:attributes).to_json %>
 
-  <%= f.label :interest_list, "Interests relevant to this project" %>
-  <%= f.text_field :interest_list, placeholder: "comma seperated", "data-pre" => @project.interests.map(&:attributes).to_json %>
+      <%= f.label :interest_list, "Interests relevant to this project" %>
+      <%= f.text_field :interest_list, placeholder: "comma seperated", "data-pre" => @project.interests.map(&:attributes).to_json %>
 
-  <%= f.submit "Update Project", class: "button tiny success" %>
-<% end %>
+      <%= f.submit "Update Project", class: "button tiny success" %>
+    <% end %>
 
-<%= link_to("back to project", project_path(@project)) %>
+    <%= link_to("back to project", project_path(@project)) %>
+  </div>
+</div>

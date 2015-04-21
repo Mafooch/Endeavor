@@ -8,6 +8,7 @@
   <section class="top-bar-section">
     <ul class="right">
       <%- if current_user -%>
+        <li><%= link_to("Recommended Projects", recommended_projects_path) %></li>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <li><%= link_to "My Profile",user_path(current_user) %></li>
       <%- else -%>
@@ -74,10 +75,10 @@
       <div class="row">
         <div class="small-12 columns recommended_projects-section">
           <% if @user.id == current_user.id %>
-            <% if @recommended_projects.any? %>
-              <h3>Project Recommendations</h3>
+            <% if @top_5_recommended_projects.any? %>
+              <h3>Top five project recommendations</h3>
               <ul id="recommended-projects-list">
-                <% @recommended_projects.each do |project| %>
+                <% @top_5_recommended_projects.each do |project| %>
                   <li><a href="/projects/<%= project.id %>" data-dropdown="project-hover-<%= project.id %>" data-options="is_hover:true; hover_timeout:0"><%= project.name %></a>
                     <ul id="project-hover-<%= project.id %>" class="f-dropdown" data-dropdown-content>
                       <h6>You match on:</h6>

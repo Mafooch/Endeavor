@@ -1,0 +1,112 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Endeavor</a></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <%- if current_user -%>
+        <li><%= link_to("Recommended Projects", recommended_projects_path) %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "My Profile",user_path(current_user) %></li>
+      <%- else -%>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
+    </ul>
+  </section>
+</nav>
+
+<body class="recommended-projects-page">
+  <div class="small-12 columns">
+  <div class="row">
+    <h1>Recommended Projects</h1>
+  <% if @recommended_projects.empty? %>
+    <h3>You have no recommended projects at this time. Check again soon!</h3>
+  <% else %>
+    <ul>
+      <% @recommended_projects.each do |project| %>
+        <div class="row recommended-project-row">
+          <div class="small-3 columns" id="project-name-column">
+            <%= link_to(project.name, project_path(project)) %>
+            <p><%= project.proposal %></p>
+          </div>
+
+          <div class="small-3 columns project-skill-column">
+            <% if project.skill_list.empty? %>
+              <h6>This project hasn't been tagged with any skills yet</h6>
+            <% else %>
+              <h6>Skills</h6>
+              <ul>
+                <% project.skill_list.each do |skill| %>
+                  <% if current_user.skill_list.include?(skill) %>
+                    <li class="match"><%= skill %></li>
+                  <% else %>
+                    <li><%= skill %></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+
+          <div class="small-3 columns project-interest-column">
+            <% if project.interest_list.empty? %>
+              <h6>This project hasn't been tagged with any interests yet</h6>
+            <% else %>
+              <h6>Interests</h6>
+              <ul>
+                <% project.interest_list.each do |interest| %>
+                  <% if current_user.interest_list.include?(interest) %>
+                    <li class="match"><%= interest %></li>
+                  <% else %>
+                    <li><%= interest %></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+
+          <div class="small-3 columns">
+            <h6><%= project.user.username %></h6>
+            <%= image_tag (project.user.profile_pic), size: "90x90" %>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+  </div>
+</div>
+</body>
+
+  <!-- <table>
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Skill Matches</th>
+        <th>Interest Matches</th>
+        <th>Proposed By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Content Goes Here</td>
+        <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+        <td>Content Goes Here</td>
+        <td>Content Goes Here</td>
+      </tr>
+      <tr>
+        <td>Content Goes Here</td>
+        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+        <td>Content Goes Here</td>
+        <td>Content Goes Here</td>
+      </tr>
+      <tr>
+        <td>Content Goes Here</td>
+        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+        <td>Content Goes Here</td>
+        <td>Content Goes Here</td>
+      </tr>
+    </tbody>
+  </table> -->

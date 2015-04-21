@@ -32,13 +32,17 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @recommended_users = @project.recommended_users
+    @top_5_recommended_users = @project.recommended_users[0..4].to_h.keys
     @skills = @project.skills
     @interests = @project.interests
   end
 
   def index
     @projects = Project.all
+  end
+
+  def recommended_projects
+    @recommended_projects = current_user.recommended_projects.to_h.keys
   end
 
   def all_skills

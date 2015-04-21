@@ -160,10 +160,8 @@ INTERESTS = ["Sports such as football, baseball, golf, soccer, tennis etc.",
     proposal: Faker::Lorem.paragraph,
     skill_list: SKILLS.sample(4).join(", "),
     interest_list: INTERESTS.sample(4).join(", "))
-
   project.user.update(
     username: Faker::Internet.user_name,
-    remote_profile_pic_url: Faker::Avatar.image,
     skill_list: SKILLS.sample(4).join(", "),
     interest_list: INTERESTS.sample(4).join(", "))
 end

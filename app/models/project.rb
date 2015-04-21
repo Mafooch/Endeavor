@@ -102,7 +102,5 @@ class Project < ActiveRecord::Base
       end
     end
     scored_users = scored_users.sort_by { |_user, score| score }.reverse
-    top_5_recommended_users = scored_users[0..4]
-    top_5_recommended_users.to_h.keys
   end
 end
