@@ -39,6 +39,8 @@
             <h3>You proposed this project</h3>
           <% else %>
             <h3>proposed by <%= @project.user.username %></h3>
+            <img src="<%= asset_path('contact-icon.png') %>">
+            <%= mail_to(@project.user.email, "contact #{@project.user.username}") %>
           <% end %>
         </div>
       </div>
