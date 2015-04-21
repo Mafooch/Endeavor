@@ -22,6 +22,7 @@
 <body class="user-page-body">
   <div class="row">
     <div class="small-12 columns profile-header">
+      <%= image_tag (@user.profile_pic), size: "140x140" %>
       <% if @user.id == current_user.id %>
         <h1>My profile</h1>
       <% else %>

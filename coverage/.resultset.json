@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/joshuamaffuccio/Dropbox/ruby/endeavor/app/models/user.rb": [
+      "/Users/joshuamaffuccio/Dropbox/Ruby/endeavor/app/models/user.rb": [
         1,
         null,
         null,
@@ -113,7 +113,7 @@
         null,
         null
       ],
-      "/Users/joshuamaffuccio/Dropbox/ruby/endeavor/app/uploaders/profile_pic_uploader.rb": [
+      "/Users/joshuamaffuccio/Dropbox/Ruby/endeavor/app/uploaders/profile_pic_uploader.rb": [
         null,
         null,
         1,
@@ -124,11 +124,20 @@
         null,
         null,
         null,
+        1,
+        1,
         null,
         null,
+        1,
+        1,
         null,
         null,
+        1,
+        15,
         null,
+        null,
+        1,
+        0,
         null,
         null,
         1,
@@ -169,11 +178,11 @@
         null,
         null
       ],
-      "/Users/joshuamaffuccio/Dropbox/ruby/endeavor/app/helpers/skills_helper.rb": [
+      "/Users/joshuamaffuccio/Dropbox/Ruby/endeavor/app/helpers/skills_helper.rb": [
         1,
         null
       ],
-      "/Users/joshuamaffuccio/Dropbox/ruby/endeavor/app/models/project.rb": [
+      "/Users/joshuamaffuccio/Dropbox/Ruby/endeavor/app/models/project.rb": [
         1,
         1,
         1,
@@ -283,7 +292,7 @@
         null,
         null
       ],
-      "/Users/joshuamaffuccio/Dropbox/ruby/endeavor/app/controllers/application_controller.rb": [
+      "/Users/joshuamaffuccio/Dropbox/Ruby/endeavor/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -305,13 +314,13 @@
         null,
         null
       ],
-      "/Users/joshuamaffuccio/Dropbox/ruby/endeavor/app/controllers/homes_controller.rb": [
+      "/Users/joshuamaffuccio/Dropbox/Ruby/endeavor/app/controllers/homes_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/joshuamaffuccio/Dropbox/ruby/endeavor/app/controllers/users_controller.rb": [
+      "/Users/joshuamaffuccio/Dropbox/Ruby/endeavor/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -327,25 +336,10 @@
         null,
         1,
         1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
         null,
         null
       ],
-      "/Users/joshuamaffuccio/Dropbox/ruby/endeavor/app/controllers/projects_controller.rb": [
+      "/Users/joshuamaffuccio/Dropbox/Ruby/endeavor/app/controllers/projects_controller.rb": [
         1,
         1,
         null,
@@ -430,6 +424,6 @@
         null
       ]
     },
-    "timestamp": 1429583328
+    "timestamp": 1429638284
   }
 }

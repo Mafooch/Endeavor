@@ -39,8 +39,13 @@
             <h3>You proposed this project</h3>
           <% else %>
             <h3>proposed by <%= @project.user.username %></h3>
+          <% end %>
+          <div class="project-profile-pic">
+          <%= image_tag (@project.user.profile_pic), size: "140x140" %>
+          </div>
+          <% unless current_user.id == @project.user.id %>
             <img src="<%= asset_path('contact-icon.png') %>">
-            <%= mail_to(@project.user.email, "contact #{@project.user.username}") %>
+            <%= mail_to(@project.user.email, "contact") %>
           <% end %>
         </div>
       </div>

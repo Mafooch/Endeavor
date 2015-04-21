@@ -130,7 +130,6 @@ INTERESTS = ["Sports such as football, baseball, golf, soccer, tennis etc.",
              "Camping",
              "Body Building/Fitness",
              "Coaching and teaching.",
-             "Astrology",
              "Astronomy",
              "Social work.",
              "Fashion designing",
@@ -150,7 +149,6 @@ INTERESTS = ["Sports such as football, baseball, golf, soccer, tennis etc.",
              "Jewelry making.",
              "Painting.",
              "Pottery, sculpture.",
-             "Astrology, tarot card reading.",
              "Knitting",
              "Social work",
              "Candle making",
@@ -159,11 +157,13 @@ INTERESTS = ["Sports such as football, baseball, golf, soccer, tennis etc.",
 50.times do
   project = FactoryGirl.create(:project,
     name: Faker::Commerce.product_name,
+    proposal: Faker::Lorem.paragraph,
     skill_list: SKILLS.sample(4).join(", "),
     interest_list: INTERESTS.sample(4).join(", "))
 
   project.user.update(
     username: Faker::Internet.user_name,
+    remote_profile_pic_url: Faker::Avatar.image,
     skill_list: SKILLS.sample(4).join(", "),
     interest_list: INTERESTS.sample(4).join(", "))
 end

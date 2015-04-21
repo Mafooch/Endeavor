@@ -14,19 +14,4 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
-  def edit
-    @user = current_user
-  end
-
-  def update
-    @user = User.update(params[:id], user_params)
-    if @user.save
-      flash[:success] = "Profile updated successfully"
-      redirect_to(user_path(@user))
-    else
-      flash[:notice] = "Update failed"
-      render :new
-    end
-  end
 end

@@ -37,7 +37,8 @@
   </div>
   <div class="field">
     <%= f.label :profile_pic, "Profile picture" %><br />
-    <%= f.file_field :profile_pic %>
+    <%= image_tag(@user.profile_pic_url) if @user.profile_pic? %>
+    <%= f.text_field :remote_profile_pic_url %>
   </div>
   <div class="field">
     <%= f.label :about_me %><br />
