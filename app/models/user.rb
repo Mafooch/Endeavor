@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   acts_as_taggable_on :skills
   acts_as_taggable_on :interests
   acts_as_tagger
+  mount_uploader :profile_pic, ProfilePicUploader
 
   validate :at_least_2_skills
   validate :at_least_2_interests

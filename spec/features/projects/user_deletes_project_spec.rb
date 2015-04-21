@@ -10,7 +10,7 @@ feature "delete a project", %q(
 
     sign_in_as(project_owner)
     visit project_path(project)
-    click_on("Delete Project")
+    click_on("Delete My Project")
 
     expect(page).to have_content("Project deleted successfully")
 
@@ -25,6 +25,6 @@ feature "delete a project", %q(
     sign_in_as(other_user)
     visit project_path(project)
 
-    expect(page).to_not have_content("Delete Project")
+    expect(page).to_not have_content("Delete My Project")
   end
 end

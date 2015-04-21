@@ -23,7 +23,6 @@ feature 'user registers', %Q{
     fill_in 'Email', with: 'john@example.com'
     fill_in 'First name', with: "John"
     fill_in 'Last name', with: "Smith"
-    fill_in 'Profile picture', with: "sdjflkasf.jpg"
     fill_in 'About me', with: "Let me you a little about myself.
       I enjoy long walks on the beach..."
     fill_in 'Password', with: 'password'

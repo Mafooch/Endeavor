@@ -10,7 +10,7 @@ feature "edit a project", %q(
 
     sign_in_as(project_owner)
     visit project_path(project)
-    click_on("Edit Project")
+    click_on("Edit My Project")
 
     fill_in "Name", with: "This is a test project name"
     fill_in "Proposal", with: "This is a test project proposal
@@ -32,7 +32,7 @@ feature "edit a project", %q(
     other_user = FactoryGirl.create(:user)
 
     sign_in_as(other_user)
-    
-    expect(page).to_not have_content("Edit Project")
+
+    expect(page).to_not have_content("Edit My Project")
   end
 end
