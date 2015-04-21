@@ -17,8 +17,8 @@
 
 $main-color: #F2F2F2; /* a faint grey for the page background*/
 $secondary-color: #339999; /* blue*/
-$tertiary-color: #EA4C42; /* salmon*/
-$fourth-color: #C7C7C7; /* darker grey*/
+$tertiary-color: #ea4c42; /* salmon*/
+$fourth-color: #c7c7c7; /* darker grey*/
 
 $primary-font-color: #121212;
 $secondary-font-color: #F4F4F1;
@@ -59,7 +59,7 @@ $secondary-font-color: #F4F4F1;
 
 .user-page-body, .project-page-body {
   text-align: center;
-  background-color: white;
+  background-color: #FFFFFF;
   & > .row {
     background-color: $main-color;
   }
@@ -116,8 +116,8 @@ $secondary-font-color: #F4F4F1;
   }
   ul {
     margin: 0;
-    border-left: .1em solid black;
-    border-right: .1em solid black;
+    border-left: 0.1em solid #000000;
+    border-right: 0.1em solid #000000;
   }
   li{
     text-align: center;
