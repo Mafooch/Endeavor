@@ -226,3 +226,10 @@ $secondary-font-color: #F4F4F1;
 #user-column-header {
   margin: 0;
 }
+
+#nav-bar-name {
+  &:hover {
+    background-color: #333333;
+    color: $secondary-color;
+  }
+}
