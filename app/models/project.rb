@@ -48,14 +48,6 @@ class Project < ActiveRecord::Base
     matches
   end
 
-  def users_matching_skills(user)
-    user.skill_list & self.skill_list
-  end
-
-  def users_matching_interests(user)
-    user.interest_list & self.interest_list
-  end
-
   def recommended_users
     ideal_user = User.create(
       username: "ideal user",
