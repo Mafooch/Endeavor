@@ -26,20 +26,25 @@ $secondary-font-color: #F4F4F1;
 .landing-page-body {
   background-color: $main-color;
   background-image: url("splash-pattern2.png");
+  background-image: url("light-blueprint-bg.jpg");
 }
 
 .splash-header {
+  background-color: $main-color;
+  opacity: 0.8;
   margin-top: 6em;
   text-align: center;
     h1 {
       font-family: Gudea;
-      color: $secondary-font-color;
+      color: $secondary-color;
       border-bottom: double $fourth-color .5em;
       margin-bottom: 2rem;
+      font-weight: bold;
     }
     h3 {
       font-family: Raleway;
-      color: $secondary-font-color;
+      color: $secondary-color;
+      font-weight: bold;
     }
 }
 
@@ -60,6 +65,9 @@ $secondary-font-color: #F4F4F1;
 .user-page-body, .project-page-body, .projects-page, .recommended-projects-page {
   text-align: center;
   background-color: #ffffff;
+  background-image: url("light-blueprint-bg.jpg");
+  /* background-image: url("blueprint-bg.jpg"); */
+  /* background-image: url("splash-pattern2.png"); */
   & > .row {
     background-color: $main-color;
   }
@@ -209,4 +217,12 @@ $secondary-font-color: #F4F4F1;
   &:hover {
     background-color: $tertiary-color;
   }
+}
+
+#recommended-project-list {
+  margin: 0 2em 0 2em;
+}
+
+#user-column-header {
+  margin: 0;
 }

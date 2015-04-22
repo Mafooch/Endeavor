@@ -20,13 +20,12 @@
 </nav>
 
 <body class="recommended-projects-page">
-  <div class="small-12 columns">
   <div class="row">
     <h1>Recommended Projects</h1>
   <% if @recommended_projects.empty? %>
     <h3>You have no recommended projects at this time. Check again soon!</h3>
   <% else %>
-    <ul>
+    <ul id="recommended-project-list">
       <% @recommended_projects.each do |project| %>
         <div class="row recommended-project-row">
           <div class="small-3 columns" id="project-name-column">
@@ -69,7 +68,7 @@
           </div>
 
           <div class="small-3 columns">
-            <h6><%= project.user.username %></h6>
+            <h6 id="user-column-header"><%= project.user.username %></h6>
             <%= image_tag (project.user.profile_pic), size: "90x90" %>
           </div>
         </div>
@@ -77,36 +76,4 @@
     </ul>
   <% end %>
   </div>
-</div>
 </body>
-
-  <!-- <table>
-    <thead>
-      <tr>
-        <th>Project</th>
-        <th>Skill Matches</th>
-        <th>Interest Matches</th>
-        <th>Proposed By</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Content Goes Here</td>
-        <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-        <td>Content Goes Here</td>
-        <td>Content Goes Here</td>
-      </tr>
-      <tr>
-        <td>Content Goes Here</td>
-        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-        <td>Content Goes Here</td>
-        <td>Content Goes Here</td>
-      </tr>
-      <tr>
-        <td>Content Goes Here</td>
-        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-        <td>Content Goes Here</td>
-        <td>Content Goes Here</td>
-      </tr>
-    </tbody>
-  </table> -->
