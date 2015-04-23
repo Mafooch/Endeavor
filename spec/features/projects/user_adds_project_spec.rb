@@ -35,6 +35,18 @@ feature "add a project", %q(
     expect(page).to_not have_content("Propose a new project!")
   end
 
+  scenario "User unsuccessfully attempts to create an invalid project" do
+    user = FactoryGirl.create(:user)
+
+    sign_in_as(user)
+    visit user_path(user)
+    click_on("Propose a new project!")
+    fill_in "Name", with: "This is a test project name"
+    click_button 'Create Project'
+
+    expect(page).to have_content("Project creation failed")
+  end
+
   scenario "guest unsuccessfully attempts to add a project" do
 
     visit new_project_path

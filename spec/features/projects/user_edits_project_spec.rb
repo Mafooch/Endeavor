@@ -16,7 +16,7 @@ feature "edit a project", %q(
     fill_in "Proposal", with: "This is a test project proposal
     This is a test project proposal This is a test project proposal
     This is a test project proposal"
-    fill_in "Useful skills for this project", with: "business communication, law"
+    fill_in "Useful skills for this project", with: "communication, law"
     fill_in "Interests relevant to this project", with: "environmental law, law"
     click_on("Update Project")
 
@@ -28,7 +28,18 @@ feature "edit a project", %q(
     expect(page).to have_content("environmental law")
   end
 
-  scenario "user that doesn't own the project unsuccessfully attempts to edit a project" do
+  scenario "project unsuccessfully trys to edit a project making it invalid" do
+    sign_in_as(project.user)
+    visit project_path(project)
+    click_on("Edit My Project")
+    fill_in("Name", with: "a")
+    click_on("Update Project")
+
+    expect(page).to have_content("Update failed")
+  end
+
+  scenario "user that doesn't own the project unsuccessfully attempts to edit a
+    project" do
     other_user = FactoryGirl.create(:user)
 
     sign_in_as(other_user)

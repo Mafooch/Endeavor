@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
       flash[:success] = "Project created successfully!"
       redirect_to user_path(current_user)
     else
+      flash[:error] = "Project creation failed"
       render :new
     end
   end
@@ -25,7 +26,7 @@ class ProjectsController < ApplicationController
       flash[:success] = "Project updated successfully"
       redirect_to(@project)
     else
-      flash[:notice] = "Update failed"
+      flash[:error] = "Update failed"
       render :new
     end
   end
