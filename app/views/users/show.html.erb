@@ -76,7 +76,7 @@
         <div class="small-12 columns recommended_projects-section">
           <% if @user.id == current_user.id %>
             <% if @top_5_recommended_projects.any? %>
-              <h3>Top five project recommendations</h3>
+              <h3>Top project recommendations</h3>
               <ul id="recommended-projects-list">
                 <% @top_5_recommended_projects.each do |project| %>
                   <li><a href="/projects/<%= project.id %>" data-dropdown="project-hover-<%= project.id %>" data-options="is_hover:true; hover_timeout:0"><%= project.name %></a>

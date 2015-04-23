@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
     if @project.save
       flash[:success] = "Project created successfully!"
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       render :new
     end
@@ -75,7 +75,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.find(params[:id])
     @project.destroy
     flash[:success] = "Project deleted successfully"
-    redirect_to(projects_path)
+    redirect_to user_path(current_user)
   end
 
   private

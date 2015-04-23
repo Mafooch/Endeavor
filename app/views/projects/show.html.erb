@@ -85,7 +85,7 @@
         <div class="small-12 columns recommended_users-section">
           <% if current_user.id == @project.user.id %>
             <% if @top_5_recommended_users.any? %>
-              <h3>Top five recommended users for your project</h3>
+              <h3>Top recommended users for your project</h3>
               <ul id="recommended-users-list">
                 <% @top_5_recommended_users.each do |user| %>
                   <li><a href="/users/<%= user.id %>" data-dropdown="user-hover-<%= user.id %>" data-options="is_hover:true; hover_timeout:0"><%= user.username %></a>
