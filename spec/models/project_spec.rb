@@ -19,7 +19,7 @@ describe Project do
   it 'each project name should be unique for a given user' do
     project = FactoryGirl.create(:project)
     project_with_same_name = FactoryGirl.build(:project, name: project.name,
-    user: project.user)
+      user: project.user)
 
     expect(project_with_same_name).to_not be_valid
     expect(project_with_same_name.errors[:name]).to_not be_blank
@@ -61,8 +61,8 @@ describe Project do
   context "project and users exist with tagged skills and interests" do
     let!(:project) do
       FactoryGirl.create(:project, skill_list: "ruby, rails,
-      css, javascript, technical writing, video production",
-      interest_list: "film, fitness, technology")
+        css, javascript, technical writing, video production",
+        interest_list: "film, fitness, technology")
     end
     let!(:irrelevant_user) { FactoryGirl.create(:user) }
     let!(:relevant_user) do
@@ -70,7 +70,7 @@ describe Project do
     end
     let!(:most_relevant_user) do
       FactoryGirl.create(:user, skill_list: "ruby, python",
-      interest_list: "film, big data")
+        interest_list: "film, big data")
     end
     describe "#recommended_users" do
       it "returns and orders the users that best match the skills and interests
@@ -87,13 +87,13 @@ describe Project do
     describe "#users_matches" do
       it "returns a user's skills and interests that match the project's" do
         expect(project.users_matches(most_relevant_user).include?(
-          {"interest" => "film"}))
+          "interest" => "film"))
         expect(project.users_matches(most_relevant_user).include?(
-          {"skill" => "ruby"}))
+          "skill" => "ruby"))
       end
       it "does not return skills and interests that do not match" do
         expect(project.users_matches(most_relevant_user).include?(
-          {"skill" => "ruby"}) == false)
+          "skill" => "ruby") == false)
       end
     end
   end

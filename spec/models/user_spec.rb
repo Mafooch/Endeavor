@@ -71,7 +71,8 @@ describe User do
       end
 
       it "does not return users that have no matches" do
-        expect(user.recommended_projects.include?([irrelevant_project]) == false)
+        expect(
+          user.recommended_projects.include?([irrelevant_project]) == false)
       end
     end
 

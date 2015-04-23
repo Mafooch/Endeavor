@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-feature "user views their recommended projects", %Q{
+feature "user views their recommended projects", %{
   As a signed in user I want to view my recommended projects page
 } do
   context "user and projects exist with tagged skills and interests" do
     let!(:user) do
       FactoryGirl.create(:user, skill_list: "ruby, rails,
-      css, javascript, technical writing, video production",
-      interest_list: "film, fitness, technology")
+        css, javascript, technical writing, video production",
+        interest_list: "film, fitness, technology")
     end
     let!(:irrelevant_project) { FactoryGirl.create(:project) }
     let!(:relevant_project) do
@@ -15,7 +15,7 @@ feature "user views their recommended projects", %Q{
     end
     let!(:most_relevant_project) do
       FactoryGirl.create(:project, skill_list: "ruby, python",
-      interest_list: "film, big data")
+        interest_list: "film, big data")
     end
     scenario "view your recommended projects" do
       sign_in_as(user)
