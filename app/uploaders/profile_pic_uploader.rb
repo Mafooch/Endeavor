@@ -9,7 +9,7 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_fit: [150, 150]
+  process resize_to_fit: [400, 400]
   # Choose what kind of storage to use for this uploader:
   # storage :fog
   version :thumb do

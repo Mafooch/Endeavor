@@ -79,13 +79,13 @@ describe User do
     describe "#project_matches" do
       it "returns a project's skills and interests that match the user's" do
         expect(user.project_matches(most_relevant_project).include?(
-          {"interest" => "film"}))
+          "interest" => "film"))
         expect(user.project_matches(most_relevant_project).include?(
-          {"skill" => "ruby"}))
+          "skill" => "ruby"))
       end
       it "does not return skills and interests that do not match" do
         expect(user.project_matches(most_relevant_project).include?(
-          {"skill" => "ruby"}) == false)
+          "skill" => "ruby") == false)
       end
     end
   end
