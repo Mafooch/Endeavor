@@ -18,7 +18,7 @@
 $(function(){ $(document).foundation(); });
 
 $(function() {
-  $("#project_skill_list").tokenInput("/projects/all_skills.json", {
+  $("#project_skill_list").tokenInput("/skill_tags.json", {
     crossDomain: false,
     prePopulate: $("#project_skill_list").data("pre"),
     theme: "facebook",
@@ -31,7 +31,7 @@ $(function() {
 });
 
 $(function() {
-  $("#project_interest_list").tokenInput("/projects/all_interests.json", {
+  $("#project_interest_list").tokenInput("/interest_tags.json", {
     crossDomain: false,
     prePopulate: $("#project_interest_list").data("pre"),
     theme: "facebook",
@@ -45,7 +45,7 @@ $(function() {
 });
 
 $(function() {
-  $("#user_skill_list").tokenInput("/projects/all_skills.json", {
+  $("#user_skill_list").tokenInput("/skill_tags.json", {
     crossDomain: false,
     prePopulate: $("#user_skill_list").data("pre"),
     theme: "facebook",
@@ -58,7 +58,7 @@ $(function() {
 });
 
 $(function() {
-  $("#user_interest_list").tokenInput("/projects/all_interests.json", {
+  $("#user_interest_list").tokenInput("/interest_tags.json", {
     crossDomain: false,
     prePopulate: $("#user_interest_list").data("pre"),
     theme: "facebook",

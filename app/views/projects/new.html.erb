@@ -21,7 +21,7 @@
 
 <div class="row">
   <div class="small-10 small-centered columns">
-    <h1>New Projects</h1>
+    <h1>New Project</h1>
     <% if @project.errors.any? %>
       <ul>
         <% @project.errors.full_messages.each do |er| %>
@@ -38,7 +38,7 @@
       <%= f.text_field :proposal %>
 
       <%= f.label :skill_list, "Useful skills for this project" %>
-      <%= f.text_field :skill_list, placeholder: "comma seperated", "data-pre" => @project.skill_list.to_json %>
+      <%= f.text_field :skill_list, placeholder: "comma seperated" %>
 
       <%= f.label :interest_list, "Interests relevant to this project" %>
       <%= f.text_field :interest_list, placeholder: "comma seperated" %>
