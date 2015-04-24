@@ -30,7 +30,7 @@ function fetchTags(cssId, route) {
       tokenValue: "name"
     });
   });
-}
+};
 
 fetchTags("#project_skill_list", "/skill_tags.json");
 fetchTags("#project_interest_list", "/interest_tags.json");
