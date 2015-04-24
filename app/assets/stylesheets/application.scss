@@ -25,8 +25,8 @@ $secondary-font-color: #F4F4F1;
 
 .landing-page-body {
   background-color: $main-color;
-  background-image: url("splash-pattern2.png");
-  background-image: url("light-blueprint-bg.jpg");
+  background-image: image_url("splash-pattern2.png");
+  background-image: image_url("light-blueprint-bg.jpg");
 }
 
 .splash-header {
@@ -65,7 +65,7 @@ $secondary-font-color: #F4F4F1;
 .user-page-body, .project-page-body, .projects-page, .recommended-projects-page {
   text-align: center;
   background-color: #ffffff;
-  background-image: url("light-blueprint-bg.jpg");
+  background-image: image_url("light-blueprint-bg.jpg");
   & > .row {
     background-color: $main-color;
     opacity: 0.9;
