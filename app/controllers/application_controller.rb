@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
     user_path(resource)
   end
 
+  include RecommendationsHelper
+
   protected
 
   def configure_permitted_parameters

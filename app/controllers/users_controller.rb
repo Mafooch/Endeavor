@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @projects = @user.projects
     @skills = @user.skills
     @interests = @user.interests
+    @test = fetch_recommendations(@user, Project)
   end
 
   def index
