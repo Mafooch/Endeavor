@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Mafooch/Endeavor.svg?branch=master)](https://travis-ci.org/Mafooch/Endeavor) [![Code Climate](https://codeclimate.com/github/Mafooch/Endeavor.png)](https://codeclimate.com/github/Mafooch/Endeavor) [![Coverage Status](https://coveralls.io/repos/Mafooch/Endeavor/badge.png)](https://coveralls.io/r/Mafooch/Endeavor)
+[![Build Status](https://travis-ci.org/Mafooch/Endeavor.svg?branch=master)](https://travis-ci.org/Mafooch/Endeavor)[![Coverage Status](https://coveralls.io/repos/Mafooch/Endeavor/badge.png)](https://coveralls.io/r/Mafooch/Endeavor)
 
 == README
 
