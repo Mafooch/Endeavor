@@ -92,7 +92,7 @@
                   <li><a href="/users/<%= user.id %>" data-dropdown="user-hover-<%= user.id %>" data-options="is_hover:true; hover_timeout:0"><%= user.username %></a>
                     <ul id="user-hover-<%= user.id %>" class="f-dropdown" data-dropdown-content>
                       <h6>Matches on:</h6>
-                      <% user.project_matches(@project).each do |match| %>
+                      <% matches(user, @project).each do |match| %>
                         <li><%= match.keys.first %>: <%= match.values.first %></li>
                       <% end %>
                     </ul>
