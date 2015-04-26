@@ -10,7 +10,7 @@ describe RecommendationsHelper do
         are the same" do
         expect(recommendation_valid?(project_1, project_2)).to eq false
         expect(recommendation_valid?(
-          project_1.user, project_2.user)).to eq false
+                project_1.user, project_2.user)).to eq false
       end
 
       it "returns false when recommendation and recommendation_for
@@ -36,15 +36,15 @@ describe RecommendationsHelper do
   context "projects and users exist with tagged skills and interests" do
     let!(:project_1) do
       FactoryGirl.create(:project, skill_list: "ruby, rails",
-                        interest_list: "film, fitness")
+                         interest_list: "film, fitness")
     end
     let!(:project_2) do
       FactoryGirl.create(:project, skill_list: "writing, web design",
-                        interest_list: "film, books")
+                         interest_list: "film, books")
     end
     let!(:user_1) do
       FactoryGirl.create(:user, skill_list: "css, rails",
-                        interest_list: "film, books")
+                         interest_list: "film, books")
     end
     let!(:user_2) do
       FactoryGirl.create(:user, skill_list: "ruby, rails")
@@ -67,9 +67,9 @@ describe RecommendationsHelper do
     describe "matches" do
       it "returns two objects matching skills and interests" do
         expect(matches(project_1, user_1)).to(
-          eq [{ "skill"=>"rails" }, { "interest"=>"film" }])
+          eq [{ "skill" => "rails" }, { "interest" => "film" }])
         expect(matches(user_2, project_1)).to(
-          eq [{ "skill"=>"ruby" }, { "skill"=>"rails" }])
+          eq [{ "skill" => "ruby" }, { "skill" => "rails" }])
       end
     end
   end
