@@ -1,7 +1,8 @@
 module RecommendationsHelper
   def fetch_recommendations(rec_for, rec_type)
     skills_interests_to_match = rec_for.skill_list + rec_for.interest_list
-    recommendations = rec_type.tagged_with([skills_interests_to_match], any: true)
+    recommendations = rec_type.tagged_with(
+      [skills_interests_to_match], any: true)
     scored_recommendations = Hash.new
 
     recommendations.each do |rec|
