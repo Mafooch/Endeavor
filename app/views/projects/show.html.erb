@@ -42,7 +42,8 @@
             <h3>proposed by <%= @project.user.username %></h3>
           <% end %>
           <div class="project-profile-pic">
-          <%= image_tag (@project.user.profile_pic), size: "140x140" %>
+          <!-- <%= image_tag (@project.user.profile_pic), size: "140x140" %> -->
+          <a href="/users/<%= @project.user.id %>"><%= image_tag (@project.user.profile_pic), size: "140x140" %></a>
           </div>
           <% unless current_user.id == @project.user.id %>
             <img src="<%= asset_path('contact-icon.png') %>">
@@ -91,7 +92,7 @@
                   <li><a href="/users/<%= user.id %>" data-dropdown="user-hover-<%= user.id %>" data-options="is_hover:true; hover_timeout:0"><%= user.username %></a>
                     <ul id="user-hover-<%= user.id %>" class="f-dropdown" data-dropdown-content>
                       <h6>Matches on:</h6>
-                      <% user.project_matches(@project).each do |match| %>
+                      <% matches(user, @project).each do |match| %>
                         <li><%= match.keys.first %>: <%= match.values.first %></li>
                       <% end %>
                     </ul>

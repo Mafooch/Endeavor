@@ -33,7 +33,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @top_5_recommended_users = @project.recommended_users[0..4].to_h.keys
+    @top_5_recommended_users = fetch_recommendations(
+      @project, User)[0..4].to_h.keys
     @skills = @project.skills
     @interests = @project.interests
   end
@@ -43,7 +44,8 @@ class ProjectsController < ApplicationController
   end
 
   def recommended_projects
-    @recommended_projects = current_user.recommended_projects.to_h.keys
+    @recommended_projects = fetch_recommendations(
+      current_user, Project).to_h.keys
   end
 
   def destroy

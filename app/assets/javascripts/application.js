@@ -17,56 +17,22 @@
 
 $(function(){ $(document).foundation(); });
 
-$(function() {
-  $("#project_skill_list").tokenInput("/skill_tags.json", {
-    crossDomain: false,
-    prePopulate: $("#project_skill_list").data("pre"),
-    theme: "facebook",
-    allowFreeTagging: true,
-    allowCreation: true,
-    preventDuplicates: true,
-    creationText: "Add new skill",
-    tokenValue: "name"
+function fetchTags(cssId, route) {
+  $(function() {
+    $(cssId).tokenInput(route, {
+      crossDomain: false,
+      prePopulate: $(cssId).data("pre"),
+      theme: "facebook",
+      allowFreeTagging: true,
+      allowCreation: true,
+      preventDuplicates: true,
+      creationText: "Add new tag",
+      tokenValue: "name"
+    });
   });
-});
+}
 
-$(function() {
-  $("#project_interest_list").tokenInput("/interest_tags.json", {
-    crossDomain: false,
-    prePopulate: $("#project_interest_list").data("pre"),
-    theme: "facebook",
-    allowFreeTagging: true,
-    allowCreation: true,
-    preventDuplicates: true,
-    creationText: "Add new interest",
-    allowFreeTagging: true,
-    tokenValue: "name"
-  });
-});
-
-$(function() {
-  $("#user_skill_list").tokenInput("/skill_tags.json", {
-    crossDomain: false,
-    prePopulate: $("#user_skill_list").data("pre"),
-    theme: "facebook",
-    allowFreeTagging: true,
-    allowCreation: true,
-    preventDuplicates: true,
-    creationText: "Add new skill",
-    tokenValue: "name"
-  });
-});
-
-$(function() {
-  $("#user_interest_list").tokenInput("/interest_tags.json", {
-    crossDomain: false,
-    prePopulate: $("#user_interest_list").data("pre"),
-    theme: "facebook",
-    allowFreeTagging: true,
-    allowCreation: true,
-    preventDuplicates: true,
-    creationText: "Add new interest",
-    allowFreeTagging: true,
-    tokenValue: "name"
-  });
-});
+fetchTags("#project_skill_list", "/skill_tags.json");
+fetchTags("#project_interest_list", "/interest_tags.json");
+fetchTags("#user_skill_list", "/skill_tags.json");
+fetchTags("#user_interest_list", "/interest_tags.json");

@@ -66,10 +66,9 @@ $secondary-font-color: #F4F4F1;
   text-align: center;
   background-color: #ffffff;
   background-image: url("light-blueprint-bg.jpg");
-  /* background-image: url("blueprint-bg.jpg"); */
-  /* background-image: url("splash-pattern2.png"); */
   & > .row {
     background-color: $main-color;
+    opacity: 0.9;
   }
   h1, h3, h6, p, li {
     color: $primary-font-color;
