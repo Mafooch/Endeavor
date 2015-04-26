@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-# include RecommendationsHelper
-
 describe RecommendationsHelper do
-  describe "recommendation_valid?", focus: true do
+  describe "recommendation_valid?" do
     context "users and project exist" do
       let!(:project_1) { FactoryGirl.create(:project) }
       let!(:project_2) { FactoryGirl.create(:project) }
@@ -34,30 +32,43 @@ describe RecommendationsHelper do
     end
   end
 
-  describe "fetch_recommendations" do
-    context "projects and users with tagged skills and interests exist" do
-      let!(:project) do
-        FactoryGirl.create(:project, skill_list: "ruby, rails,
-          css, javascript, technical writing, video production",
-          interest_list: "film, fitness, technology")
-      end
-      let!(:irrelevant_user) { FactoryGirl.create(:user) }
-      let!(:relevant_user) do
-        FactoryGirl.create(:user, skill_list: "ruby, rails")
-      end
-      let!(:most_relevant_user) do
-        FactoryGirl.create(:user, skill_list: "ruby, python",
-          interest_list: "film, big data")
-      end
+  context "projects and users exist with tagged skills and interests" do
+    let!(:project_1) do
+      FactoryGirl.create(:project, skill_list: "ruby, rails",
+        interest_list: "film, fitness")
+    end
+    let!(:project_2) do
+      FactoryGirl.create(:project, skill_list: "writing, web design",
+        interest_list: "film, books")
+    end
+    let!(:user_1) do
+      FactoryGirl.create(:user, skill_list: "css, rails",
+        interest_list: "film, books")
+    end
+    let!(:user_2) do
+      FactoryGirl.create(:user, skill_list: "ruby, rails")
+    end
 
+    describe "fetch_recommendations" do
       it "returns and orders the users that best match the skills and interests
         of the project" do
-        expect(project.recommended_users[0][0]).to eq most_relevant_user
-        expect(project.recommended_users[1][0]).to eq relevant_user
+        expect(fetch_recommendations(project_1, User)[0][0]).to eq user_1
+        expect(fetch_recommendations(project_1, User)[1][0]).to eq user_2
       end
 
-      it "does not return users that have no matches" do
-        expect(project.recommended_users.include?([irrelevant_user]) == false)
+      it "returns and orders the projects that best match the skills and
+        interests of the user" do
+        expect(fetch_recommendations(user_1, Project)[0][0]).to eq project_1
+        expect(fetch_recommendations(user_1, Project)[1][0]).to eq project_2
+      end
+    end
+
+    describe "matches" do
+      it "returns two objects matching skills and interests" do
+        expect(matches(project_1, user_1)).to(
+          eq [{"skill"=>"rails"}, {"interest"=>"film"}])
+        expect(matches(user_2, project_1)).to(
+          eq [{"skill"=>"ruby"}, {"skill"=>"rails"}])
       end
     end
   end
