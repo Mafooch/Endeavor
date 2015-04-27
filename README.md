@@ -1,30 +1,27 @@
-[![Build Status](https://travis-ci.org/Mafooch/Endeavor.svg?branch=master)](https://travis-ci.org/Mafooch/Endeavor)[![Coverage Status](https://coveralls.io/repos/Mafooch/Endeavor/badge.png)](https://coveralls.io/r/Mafooch/Endeavor)
+[![Build Status](https://travis-ci.org/Mafooch/Endeavor.svg?branch=master)](https://travis-ci.org/Mafooch/Endeavor)
+[![Coverage Status](https://coveralls.io/repos/Mafooch/Endeavor/badge.png)](https://coveralls.io/r/Mafooch/Endeavor)
 
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Got the itch to create something cool but lack the team and resources to make
+it a reality? Maybe you've got a great script for a short film, doomed to never
+see the light of day simply because you don't know the first thing about video
+production. Or perhaps you simply wish you had some way to combine your interest
+in contemporary art and your skills in web design.
 
-Things you may want to cover:
+Whether you're in need of a skill-set, an idea, or like-minded individuals,
+Endeavor fills the gap.
 
-* Ruby version
+Add your interests and skills and get recommended to work on projects!
 
-* System dependencies
+![alt tag](http://i.imgur.com/NtW9THN.jpg)
 
-* Configuration
+![alt tag](http://i.imgur.com/aaHsM9o.jpg)
 
-* Database creation
+Propose a new project and tag it with relevant interests and skills to discover
+and contact right talent and know-how!
 
-* Database initialization
+![alt tag](http://i.imgur.com/ntTchfv.jpg)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Stop languishing and express your interests, skills, and ideas with kindred
+spirits!
