@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Mafooch/Endeavor.svg?branch=master)](https://travis-ci.org/Mafooch/Endeavor)
+[![Code Climate](https://codeclimate.com/github/Mafooch/Endeavor.png)](https://codeclimate.com/github/Mafooch/Endeavor)
 [![Coverage Status](https://coveralls.io/repos/Mafooch/Endeavor/badge.png)](https://coveralls.io/r/Mafooch/Endeavor)
 
 == README
@@ -14,12 +15,12 @@ Endeavor fills the gap.
 
 Add your interests and skills and get recommended to work on projects!
 
-![alt tag](http://i.imgur.com/NtW9THN.jpg)
-
 ![alt tag](http://i.imgur.com/aaHsM9o.jpg)
 
+![alt tag](http://i.imgur.com/lwu8fjQ.jpg)
+
 Propose a new project and tag it with relevant interests and skills to discover
-and contact right talent and know-how!
+and contact the right talent and passion!
 
 ![alt tag](http://i.imgur.com/ntTchfv.jpg)
 
