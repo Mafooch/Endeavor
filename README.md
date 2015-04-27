@@ -18,8 +18,8 @@ Add your interests and skills and get recommended to work on projects!
 
 ![alt tag](http://i.imgur.com/lwu8fjQ.jpg)
 
-Endeavor prioritizes projects/users that your match you across contexts i.e.
-1 interest match + 1 skill match > 2 skill (or interest) matches alone. 
+Endeavor prioritizes projects/users that match you across contexts i.e.\n
+1 interest match + 1 skill match > 2 skill (or interest) matches alone.
 
 ![alt tag](http://i.imgur.com/aaHsM9o.jpg)
 
