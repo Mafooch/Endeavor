@@ -1,8 +1,9 @@
 [![Build Status](https://travis-ci.org/Mafooch/Endeavor.svg?branch=master)](https://travis-ci.org/Mafooch/Endeavor)
-[![Code Climate](https://codeclimate.com/github/Mafooch/Endeavor.png)](https://codeclimate.com/github/Mafooch/Endeavor)
 [![Coverage Status](https://coveralls.io/repos/Mafooch/Endeavor/badge.png)](https://coveralls.io/r/Mafooch/Endeavor)
 
-== README
+Endeavor
+
+http://endeavor-project.herokuapp.com/
 
 Got the itch to create something cool but lack the team and resources to make
 it a reality? Maybe you've got a great script for a short film, doomed to never
