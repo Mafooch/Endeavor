@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index, :edit, :update]
   resources :interest_tags, only: [:index]
   resources :skill_tags, only: [:index]
-  get "projects/all_skills"
-  get "projects/all_interests"
   get "recommended_projects" => "projects#recommended_projects",
     as: "recommended_projects"
   resources :projects
